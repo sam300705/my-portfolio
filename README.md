@@ -1,36 +1,39 @@
-# 🚀 Kumar Sambhav | Backend & Full-Stack Developer Portfolio
+# Kumar Sambhav | Associate AI & Data Engineer
 
-Welcome to my personal portfolio repository! I am a B.Tech CSE student (Class of 2027) at Dronacharya Group of Institutions, specializing in backend architecture, concurrency, and scalable systems. 
+Personal portfolio for Kumar Sambhav, a B.Tech Computer Science and Information Technology student (2023-2027) focused on reliable, secure, and data-informed software.
 
-🌐 **Live Site:** [sambhavcodes.in](https://sambhavcodes.in)
+**Live site:** [sambhavcodes.in](https://sambhavcodes.in)
 
-## 🛠️ Tech Stack Used
-* **Frontend:** React.js, JavaScript, HTML5/CSS3
-* **Backend:** Node.js, Express.js (MERN Stack)
-* **Deployment & Tooling:** Git, GitHub, Linux 
+## Focus
 
-## 💻 Highlighted Projects
+- AI-agent security tooling and policy-as-code
+- Python, TypeScript, JavaScript, SQL, and DBMS
+- React applications, workflow validation, testing, debugging, and technical documentation
+- Go CLI tooling and Linux workflows
 
-### 1. ElderEase (Healthcare Assistance Platform)
-* **Stack:** MERN Stack, Node.js, MongoDB
-* **Overview:** A real-time health data visualization system designed to handle continuous data streams for user health monitoring.
-* **Key Features:**
-  * Developed a scalable backend using Node.js to aggregate and stream real-time data continuously.
-  * Optimized MongoDB aggregation pipelines for low-latency data retrieval, ensuring high availability for critical alerts.
-  * Integrated a custom cross-border multilingual toggle (including Conversational Mandarin).
+## Selected projects
 
-### 2. Concurrent Payment Engine Simulation
-* **Stack:** Java, SQL
-* **Overview:** A fault-tolerant transaction system focusing on atomicity and strict data consistency under concurrent load.
-* **Key Features:**
-  * Implemented Optimistic Locking mechanisms to resolve race conditions and simulate real-world IPC challenges.
+### AgentShield - Policy-as-Code AI Agent Security Control Plane
 
-### 3. ImgFlow (Gowall): High-Performance Data Processing CLI
-* **Stack:** Golang, Linux
-* **Overview:** A concurrent CLI tool for Linux environments.
-* **Key Features:** * Achieved a 40% increase in CPU throughput via optimized worker pools.
-  * Applied advanced process management to parallelize data manipulation tasks using Goroutines, preventing memory leaks.
+Ongoing project that detects and explains risky coding-agent changes with deterministic checks for secrets, workflow logs, and dependency inventory. It includes versioned rules, auditable decisions, snapshots, remediation playbooks, and a React/Vite/Tailwind dashboard for scan results, risk scores, approvals, and audit trails.
 
-## 📫 Let's Connect
-* **LinkedIn:** [linkedin.com/in/kumar-sambhav1/](https://linkedin.com/in/kumar-sambhav1/)
-* **Email:** krsambhav05@gmail.com
+[Repository](https://github.com/sam300705/Agentshield)
+
+### SecondYouth - Senior-Citizen Assistance Web Application
+
+Responsive React/Vite application for senior-citizen assistance workflows. Features reusable components and client-side navigation for biometric-only login, settings, and medicine deep linking, validated across expected and edge-case scenarios.
+
+[Live demo](https://second-youth.vercel.app) · [Repository](https://github.com/sam300705/SecondYouth)
+
+### ImgFlow - Open-Source Image Processing CLI
+
+Open-source Go CLI for image workflows including theme and palette conversion, compression, OCR, format conversion, terminal preview, visual effects, Unix pipes and redirection, pixel art, GIF creation, background removal, palette extraction, icon recoloring, and image transformations.
+
+[Repository](https://github.com/sam300705/imgflow)
+
+## Contact
+
+- [Portfolio](https://sambhavcodes.in)
+- [GitHub](https://github.com/sam300705)
+- [LinkedIn](https://www.linkedin.com/in/kumar-sambhav1/)
+- Email: [krsambhav05@gmail.com](mailto:krsambhav05@gmail.com)
