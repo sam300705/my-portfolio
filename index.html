@@ -1,91 +1,346 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kumar Sambhav | Associate AI & Data Engineer</title>
-  <meta name="description" content="Portfolio of Kumar Sambhav, an Associate AI and Data Engineer focused on reliable, secure, and data-informed software.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="Kumar Sambhav is an Associate AI and Data Engineer building secure AI-agent tooling, React applications, and open-source developer tools.">
+  <meta name="author" content="Kumar Sambhav">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sambhavcodes.in/">
+  <meta property="og:title" content="Kumar Sambhav | AI & Data Engineer">
+  <meta property="og:description" content="Secure AI tooling, data-informed applications, and open-source engineering.">
+  <meta property="og:image" content="https://sambhavcodes.in/assets/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kumar Sambhav | AI & Data Engineer">
+  <meta name="twitter:description" content="Secure AI tooling, data-informed applications, and open-source engineering.">
+  <meta name="twitter:image" content="https://sambhavcodes.in/assets/og-card.png">
+  <link rel="canonical" href="https://sambhavcodes.in/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Kumar Sambhav | AI & Data Engineer</title>
   <style>
-    :root{--bg:#0b1020;--panel:#121a30;--text:#edf2ff;--muted:#afbad4;--line:#293555;--accent:#74e6b8;--accent-dark:#0f4939}
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif;line-height:1.6}
-    a{color:inherit;text-decoration:none} .wrap{max-width:1120px;margin:auto;padding:0 24px} nav{height:74px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
-    .brand,.eyebrow,.label,.tag{font-family:"DM Mono",monospace;letter-spacing:.09em}.brand{font-weight:500;color:var(--accent);font-size:14px}.links{display:flex;gap:22px;font-size:14px;color:var(--muted)}.links a:hover{color:var(--accent)}
-    .hero{padding:104px 0 82px;background:radial-gradient(circle at 85% 15%,#1c3f52 0,transparent 28%)}.eyebrow{font-size:12px;color:var(--accent);margin:0 0 18px}.hero h1{font-size:clamp(45px,8vw,82px);line-height:1.05;letter-spacing:-.055em;max-width:900px;margin:0}.hero h1 span{color:var(--accent)}.intro{font-size:18px;color:var(--muted);max-width:770px;margin:27px 0 34px}.actions{display:flex;gap:13px;flex-wrap:wrap}.button{padding:12px 18px;border:1px solid var(--accent);font-size:13px;font-weight:700}.button.primary{background:var(--accent);color:#06140f}.button:hover{transform:translateY(-2px)}
-    section{padding:78px 0;border-top:1px solid var(--line)}.section-head{display:flex;gap:16px;align-items:baseline;margin-bottom:34px}.num{font:12px "DM Mono",monospace;color:var(--accent)}h2{font-size:31px;line-height:1.2;margin:0;letter-spacing:-.04em}h3{margin:0 0 8px;font-size:21px;line-height:1.3}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:42px}.copy{font-size:16px;color:var(--muted)}.copy strong{color:var(--text)}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--panel);border:1px solid var(--line);padding:25px}.project{display:flex;flex-direction:column;min-height:330px}.project p,.item p{color:var(--muted);font-size:14px;margin:12px 0}.project .button{margin-top:auto;align-self:flex-start}.stack,.tags{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}.tag{font-size:10px;color:var(--accent);border:1px solid #31556a;padding:5px 8px}.item{padding:0 0 25px;margin-bottom:25px;border-bottom:1px solid var(--line)}.item:last-child{border:0;margin:0}.meta{font:12px "DM Mono",monospace;color:var(--accent);margin-bottom:7px}.sub{font-size:14px;color:var(--muted);margin:0}.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.skill-group{border:1px solid var(--line);padding:22px}.label{font-size:11px;color:var(--accent);margin-bottom:14px}.skill-group p{font-size:14px;color:var(--muted);margin:0}
-    .education{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.education .card{min-height:180px}.contact{padding:94px 0;background:#080d1a}.contact h2{font-size:clamp(42px,7vw,72px);max-width:800px}.contact p{font-size:17px;color:var(--muted);max-width:600px}footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font:11px "DM Mono",monospace}
-    @media(max-width:850px){.cards,.skills,.education{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.links{display:none}.hero{padding:78px 0 60px}section{padding:58px 0}}
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0b1728;
+      --panel: rgba(14, 30, 50, .76);
+      --panel-solid: #0e1e32;
+      --text: #f3f7ff;
+      --muted: #9babc1;
+      --line: rgba(151, 174, 204, .17);
+      --accent: #63e6be;
+      --accent-2: #7da8ff;
+      --warm: #ffcf8a;
+      --shadow: 0 24px 80px rgba(0, 0, 0, .28);
+      --radius: 22px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 78% 4%, rgba(50, 115, 142, .22), transparent 29rem),
+        radial-gradient(circle at 8% 30%, rgba(74, 84, 166, .15), transparent 25rem),
+        var(--bg);
+      font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .28;
+      background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 72%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .mono { font-family: "DM Mono", ui-monospace, monospace; }
+    .skip-link { position: fixed; left: 16px; top: -60px; z-index: 100; padding: 10px 14px; background: var(--accent); color: #03110c; border-radius: 10px; }
+    .skip-link:focus { top: 12px; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 31, .76);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav { height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.02em; }
+    .brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; color: #04130e; background: var(--accent); font: 500 12px "DM Mono", monospace; }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: 13px; font-weight: 700; }
+    .nav-links a { transition: color .2s ease; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--text); }
+    .nav-cta { padding: 9px 14px; border: 1px solid rgba(99, 230, 190, .35); border-radius: 999px; color: var(--accent) !important; }
+    .menu-btn { display: none; width: 42px; height: 42px; border: 1px solid var(--line); color: var(--text); background: transparent; border-radius: 12px; font-size: 20px; }
+
+    .hero { padding: 96px 0 84px; min-height: calc(100svh - 74px); display: grid; align-items: center; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr); align-items: center; gap: 70px; }
+    .availability { display: inline-flex; align-items: center; gap: 9px; padding: 7px 12px; margin-bottom: 24px; border: 1px solid rgba(99, 230, 190, .25); background: rgba(99, 230, 190, .07); color: #b7f5df; border-radius: 999px; font: 500 11px "DM Mono", monospace; letter-spacing: .06em; text-transform: uppercase; }
+    .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(99,230,190,.5); animation: pulse 2.2s infinite; }
+    @keyframes pulse { 70% { box-shadow: 0 0 0 8px rgba(99,230,190,0); } 100% { box-shadow: 0 0 0 0 rgba(99,230,190,0); } }
+    .hero h1 { max-width: 780px; margin: 0; font-size: clamp(48px, 7.6vw, 92px); line-height: .98; letter-spacing: -.065em; }
+    .hero h1 span { display: block; color: var(--accent); }
+    .hero-copy { max-width: 720px; margin: 28px 0 0; color: var(--muted); font-size: clamp(17px, 2vw, 20px); }
+    .hero-copy strong { color: var(--text); font-weight: 600; }
+    .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .btn { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 17px; border: 1px solid var(--line); border-radius: 12px; font-size: 13px; font-weight: 800; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+    .btn:hover { transform: translateY(-2px); border-color: rgba(99,230,190,.55); }
+    .btn-primary { background: var(--accent); border-color: var(--accent); color: #04130e; }
+    .btn-secondary { background: rgba(255,255,255,.035); }
+    .quick-proof { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); }
+    .proof { min-width: 120px; }
+    .proof strong { display: block; font-size: 20px; letter-spacing: -.04em; }
+    .proof span { color: var(--muted); font: 10px "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+
+    .portrait-wrap { position: relative; width: min(100%, 390px); justify-self: end; }
+    .portrait-wrap::before { content: ""; position: absolute; inset: 9% -8% -7% 12%; border-radius: 42% 58% 50% 45%; background: linear-gradient(145deg, rgba(99,230,190,.38), rgba(125,168,255,.08)); filter: blur(1px); transform: rotate(5deg); }
+    .portrait { position: relative; overflow: hidden; aspect-ratio: 4 / 5; border: 1px solid rgba(255,255,255,.16); border-radius: 36px; background: #e7ded0; box-shadow: var(--shadow); transform: rotate(1.5deg); }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 34%; }
+    .portrait-note { position: absolute; left: -24px; bottom: 24px; padding: 11px 14px; border: 1px solid rgba(255,255,255,.15); border-radius: 13px; background: rgba(7,17,31,.86); backdrop-filter: blur(12px); box-shadow: var(--shadow); }
+    .portrait-note strong { display: block; font-size: 12px; }
+    .portrait-note span { color: var(--accent); font: 9px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .08em; }
+
+    section { padding: 92px 0; border-top: 1px solid var(--line); }
+    .section-kicker { margin: 0 0 11px; color: var(--accent); font: 500 11px "DM Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 38px; }
+    .section-head h2 { max-width: 720px; margin: 0; font-size: clamp(34px, 5vw, 58px); line-height: 1.08; letter-spacing: -.055em; }
+    .section-head p { max-width: 420px; margin: 0; color: var(--muted); font-size: 14px; }
+
+    .building { position: relative; overflow: hidden; border: 1px solid rgba(99,230,190,.22); border-radius: var(--radius); background: linear-gradient(135deg, rgba(21,52,57,.9), rgba(10,25,42,.92)); box-shadow: var(--shadow); }
+    .building::after { content: ""; position: absolute; width: 330px; height: 330px; right: -90px; bottom: -180px; border-radius: 50%; background: rgba(99,230,190,.11); filter: blur(3px); }
+    .building-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: stretch; }
+    .building-copy { position: relative; z-index: 1; padding: 46px; }
+    .status { display: inline-flex; gap: 8px; align-items: center; margin-bottom: 20px; color: var(--accent); font: 500 10px "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+    .building h3 { margin: 0; font-size: clamp(34px, 5vw, 62px); letter-spacing: -.055em; line-height: 1; }
+    .building-copy > p { margin: 20px 0; color: #b4c3d6; }
+    .evidence { display: grid; gap: 10px; margin: 24px 0 0; padding: 0; list-style: none; }
+    .evidence li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; color: #cad5e4; font-size: 13px; }
+    .evidence li::before { content: "✓"; color: var(--accent); font-weight: 800; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 22px 0; }
+    .tag { padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; color: #b9c6d8; background: rgba(255,255,255,.025); font: 9px "DM Mono", monospace; letter-spacing: .05em; text-transform: uppercase; }
+
+    .scan-ui { position: relative; z-index: 1; min-height: 460px; padding: 38px; background: rgba(3,10,18,.35); border-left: 1px solid rgba(255,255,255,.09); display: grid; align-content: center; }
+    .window { overflow: hidden; border: 1px solid rgba(255,255,255,.13); border-radius: 16px; background: #091422; box-shadow: 0 26px 70px rgba(0,0,0,.35); transform: perspective(900px) rotateY(-5deg) rotateX(2deg); }
+    .window-bar { display: flex; align-items: center; gap: 6px; height: 38px; padding: 0 13px; background: #0e1b2b; border-bottom: 1px solid var(--line); }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #384961; }.dot:first-child{background:#ff7e79}.dot:nth-child(2){background:#ffcf6d}.dot:nth-child(3){background:#62dfaa}
+    .scan-body { display: grid; grid-template-columns: 95px 1fr; min-height: 290px; }
+    .scan-nav { padding: 16px 10px; border-right: 1px solid var(--line); }
+    .scan-line { height: 7px; margin: 9px 0; border-radius: 6px; background: #23354c; }.scan-line:nth-child(2){width:70%;background:rgba(99,230,190,.5)}.scan-line:nth-child(3){width:82%}.scan-line:nth-child(4){width:58%}
+    .scan-content { padding: 20px; }
+    .risk-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; margin-bottom: 13px; padding: 13px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.02); }
+    .risk-title { height: 8px; width: 58%; border-radius: 8px; background: #71839d; }.risk-sub{height:6px;width:78%;margin-top:8px;border-radius:8px;background:#263951}
+    .risk-badge { padding: 5px 7px; border-radius: 7px; color: #ffcf8a; background: rgba(255,207,138,.1); font: 8px "DM Mono", monospace; }
+
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+    .project-card { overflow: hidden; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); box-shadow: 0 18px 55px rgba(0,0,0,.14); transition: transform .25s ease, border-color .25s ease; }
+    .project-card:hover { transform: translateY(-5px); border-color: rgba(99,230,190,.34); }
+    .project-visual { min-height: 250px; padding: 22px; display: grid; place-items: center; border-bottom: 1px solid var(--line); background: linear-gradient(150deg, #13283f, #0a1525); }
+    .project-copy { display: flex; flex-direction: column; flex: 1; padding: 28px; }
+    .project-meta { display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font: 9px "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+    .project-card h3 { margin: 12px 0 8px; font-size: 30px; letter-spacing: -.04em; }
+    .project-copy > p { color: var(--muted); font-size: 14px; }
+    .project-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 20px; }
+
+    .phone { width: 146px; padding: 9px; border: 1px solid rgba(255,255,255,.22); border-radius: 28px; background: #07111e; box-shadow: 20px 28px 60px rgba(0,0,0,.28); transform: rotate(5deg); }
+    .phone-screen { overflow: hidden; min-height: 220px; padding: 18px 12px; border-radius: 20px; background: linear-gradient(#f8f2e8, #e9f6ec); color: #23332b; }
+    .phone-notch { width: 45px; height: 6px; margin: -11px auto 18px; border-radius: 8px; background: #15291f; }
+    .hello { font-size: 8px; color: #65736b; }.phone-screen h4{margin:3px 0 14px;font-size:15px;letter-spacing:-.04em}.health-card{padding:10px;border-radius:11px;background:white;box-shadow:0 5px 18px rgba(18,40,30,.08);font-size:8px}.health-row{display:flex;justify-content:space-between;margin:7px 0}.medicine{margin-top:10px;padding:9px;border-radius:10px;color:white;background:#3a7358;font-size:8px}
+    .terminal { width: min(100%, 430px); overflow: hidden; border: 1px solid rgba(255,255,255,.15); border-radius: 15px; background: #071018; box-shadow: var(--shadow); transform: rotate(-1.5deg); }
+    .terminal-head{height:35px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#101c27;border-bottom:1px solid var(--line)}.terminal-body{padding:20px;color:#b9c9d8;font:10px/1.8 "DM Mono",monospace}.cmd{color:var(--accent)}.output{color:#7da8ff}.terminal-swatch{display:flex;gap:5px;margin:10px 0}.terminal-swatch span{width:24px;height:24px;border-radius:6px;background:#91a7ff}.terminal-swatch span:nth-child(2){background:#63e6be}.terminal-swatch span:nth-child(3){background:#ffcf8a}.terminal-swatch span:nth-child(4){background:#f78da7}.terminal-swatch span:nth-child(5){background:#8391a5}
+
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 54px; align-items: start; }
+    .about-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+    .about-photo { aspect-ratio: 4/3; overflow: hidden; }.about-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}.about-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}.fact{padding:19px;background:var(--panel-solid)}.fact span{display:block;color:var(--muted);font:9px "DM Mono",monospace;text-transform:uppercase;letter-spacing:.08em}.fact strong{display:block;margin-top:5px;font-size:13px}
+    .about-copy h2 { margin: 0; font-size: clamp(36px,5vw,60px); line-height: 1.08; letter-spacing: -.055em; }.about-copy > p{color:var(--muted);font-size:16px}.about-copy > p strong{color:var(--text)}
+    .principles { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 30px; }.principle{padding:18px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025)}.principle b{display:block;font-size:13px}.principle span{display:block;margin-top:4px;color:var(--muted);font-size:12px}
+
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .skill-card { padding: 24px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255,255,255,.025); }
+    .skill-card h3 { margin: 0 0 14px; color: var(--accent); font: 500 11px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .1em; }
+    .skill-card p { margin: 0; color: #bdc9d9; font-size: 14px; }
+
+    .timeline { display: grid; grid-template-columns: 160px 1fr; gap: 35px; }
+    .timeline-date { color: var(--accent); font: 11px "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+    .timeline-content { position: relative; padding: 0 0 46px 34px; border-left: 1px solid var(--line); }
+    .timeline-content::before { content:"";position:absolute;left:-5px;top:3px;width:9px;height:9px;border:2px solid var(--accent);border-radius:50%;background:var(--bg) }
+    .timeline-content h3 { margin: -5px 0 3px; font-size: 22px; letter-spacing: -.035em; }.timeline-content .role{margin:0;color:var(--muted);font-size:13px}.timeline-content ul{margin:18px 0 0;padding-left:18px;color:#b4c0d0;font-size:14px}.timeline-content li+li{margin-top:7px}
+
+    .education-grid { display: grid; grid-template-columns: 1.2fr .9fr .9fr; gap: 16px; }
+    .edu { padding: 25px; border: 1px solid var(--line); border-radius: 17px; background: var(--panel); }.edu .year{color:var(--accent);font:10px "DM Mono",monospace;letter-spacing:.08em}.edu h3{margin:13px 0 8px;font-size:19px;line-height:1.3}.edu p{margin:0;color:var(--muted);font-size:13px}
+    .cert-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-top: 42px; }.cert{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}.cert strong{font-size:13px}.cert span{color:var(--muted);font:9px "DM Mono",monospace;text-align:right}
+
+    .contact-card { position: relative; overflow: hidden; display: grid; grid-template-columns: 1.2fr .8fr; gap: 30px; padding: clamp(32px,6vw,68px); border: 1px solid rgba(99,230,190,.22); border-radius: 28px; background: linear-gradient(135deg, rgba(23,62,67,.95), rgba(11,27,47,.95)); box-shadow: var(--shadow); }
+    .contact-card::after{content:"@";position:absolute;right:-20px;bottom:-105px;color:rgba(255,255,255,.04);font-size:300px;font-weight:800;line-height:1}.contact-card h2{margin:0;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.06em}.contact-card p{max-width:620px;color:#bac7d7}.contact-links{position:relative;z-index:1;display:grid;align-content:center;gap:10px}.contact-link{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border:1px solid rgba(255,255,255,.13);border-radius:13px;background:rgba(0,0,0,.12);font-size:13px;font-weight:700}.contact-link span{color:var(--accent)}
+    footer { padding: 26px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-row span:last-child{font-family:"DM Mono",monospace}
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }.reveal.visible{opacity:1;transform:none}
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 5px; }
+
+    @media (max-width: 920px) {
+      .hero-grid, .building-grid, .about-grid, .contact-card { grid-template-columns: 1fr; }
+      .hero { min-height: auto; padding-top: 70px; }
+      .portrait-wrap { width: min(78%, 390px); justify-self: start; margin: 20px 0 0 34px; }
+      .scan-ui { border-left: 0; border-top: 1px solid rgba(255,255,255,.09); }
+      .skills-grid { grid-template-columns: repeat(2,1fr); }
+      .education-grid { grid-template-columns: 1fr 1fr; }.education-grid .edu:first-child{grid-column:1/-1}
+      .contact-links { grid-template-columns: repeat(2,1fr); }
+    }
+
+    @media (max-width: 700px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      .menu-btn { display: grid; place-items: center; }
+      .nav-links { position: absolute; top: 74px; left: 14px; right: 14px; display: none; align-items: stretch; flex-direction: column; gap: 0; padding: 10px; border: 1px solid var(--line); border-radius: 16px; background: #0b1728; box-shadow: var(--shadow); }
+      .nav-links.open { display: flex; }.nav-links a{padding:12px}.nav-cta{text-align:center;margin-top:6px}
+      .hero { padding: 56px 0 70px; }.hero h1{font-size:clamp(47px,15vw,72px)}
+      .portrait-wrap { width: calc(100% - 24px); margin-left: 24px; }.portrait-note{left:-20px}
+      section { padding: 70px 0; }.section-head{align-items:start;flex-direction:column}.section-head p{max-width:100%}
+      .building-copy, .scan-ui { padding: 26px; }.scan-ui{min-height:360px}.scan-body{grid-template-columns:72px 1fr}.scan-content{padding:14px}.risk-row{padding:10px}
+      .project-grid, .skills-grid, .principles, .cert-list, .education-grid, .contact-links { grid-template-columns: 1fr; }.education-grid .edu:first-child{grid-column:auto}
+      .timeline { grid-template-columns: 1fr; gap: 11px; }.timeline-content{margin-left:5px;padding-left:26px}
+      .quick-proof { display:grid;grid-template-columns:repeat(2,1fr);gap:16px }.proof{min-width:0}
+      .about-facts{grid-template-columns:1fr 1fr}.project-visual{min-height:220px}
+    }
+
+    @media (prefers-reduced-motion: reduce) { html{scroll-behavior:auto}.pulse{animation:none}.reveal{opacity:1;transform:none;transition:none}.btn,.project-card{transition:none} }
   </style>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Kumar Sambhav","url":"https://sambhavcodes.in","image":"https://sambhavcodes.in/assets/kumar-sambhav.webp","jobTitle":"Associate AI and Data Engineer","email":"mailto:krsambhav05@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Greater Noida","addressRegion":"Uttar Pradesh","addressCountry":"IN"},"sameAs":["https://github.com/sam300705","https://www.linkedin.com/in/kumar-sambhav1/"]}
+  </script>
 </head>
 <body>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="#top">KS / 2026</a>
-      <div class="links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Kumar Sambhav, home"><span class="brand-mark">KS</span><span>Kumar Sambhav</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#work">Work</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#education">Education</a><a class="nav-cta" href="assets/Kumar-Sambhav-Resume.pdf" download>Résumé ↓</a>
+      </div>
     </nav>
-  </div>
+  </header>
 
-  <main id="top">
-    <div class="hero">
-      <div class="wrap">
-        <p class="eyebrow">ASSOCIATE AI & DATA ENGINEER</p>
-        <h1>Kumar <span>Sambhav.</span></h1>
-        <p class="intro">B.Tech student in Computer Science and Information Technology building reliable, secure, and data-informed software. I work across AI-agent security tooling, React applications, workflow validation, and Go command-line tools.</p>
-        <div class="actions">
-          <a class="button primary" href="#projects">View projects</a>
-          <a class="button" href="mailto:krsambhav05@gmail.com">Email me</a>
-          <a class="button" target="_blank" rel="noreferrer" href="https://github.com/sam300705">GitHub ↗</a>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid container">
+        <div class="reveal">
+          <div class="availability"><span class="pulse"></span> Open to AI & data engineering opportunities</div>
+          <h1>Building software that earns <span>trust.</span></h1>
+          <p class="hero-copy">I’m <strong>Kumar Sambhav</strong>, an Associate AI & Data Engineer focused on secure AI-agent tooling, reliable React applications, and useful open-source developer tools.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
+            <a class="btn btn-secondary" href="assets/Kumar-Sambhav-Resume.pdf" download>Download résumé</a>
+            <a class="btn btn-secondary" href="mailto:krsambhav05@gmail.com">Let’s talk</a>
+          </div>
+          <div class="quick-proof" aria-label="Quick facts">
+            <div class="proof"><strong>3</strong><span>Flagship projects</span></div>
+            <div class="proof"><strong>2027</strong><span>B.Tech graduate</span></div>
+            <div class="proof"><strong>3</strong><span>Spoken languages</span></div>
+          </div>
+        </div>
+        <div class="portrait-wrap reveal">
+          <div class="portrait"><img src="assets/kumar-sambhav.webp" width="900" height="1125" alt="Kumar Sambhav smiling in a light striped shirt"></div>
+          <div class="portrait-note"><strong>Greater Noida, India</strong><span>Building independently</span></div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <section id="about"><div class="wrap">
-      <div class="section-head"><span class="num">01</span><h2>About</h2></div>
-      <div class="grid">
-        <div class="copy"><p>I am pursuing a B.Tech in Computer Science and Information Technology at Dronacharya Group of Institutions, Greater Noida (2023–2027).</p><p>My foundation includes <strong>Python, TypeScript, JavaScript, SQL/DBMS, testing, debugging, technical documentation, and Git-based development.</strong> I am seeking an entry-level AI and data engineering opportunity where I can contribute to reliable and secure software solutions.</p></div>
-        <div class="card"><div class="label">DETAILS</div><p><strong>Based in</strong><br>Greater Noida, Uttar Pradesh, India</p><p><strong>Email</strong><br><a href="mailto:krsambhav05@gmail.com">krsambhav05@gmail.com</a></p><p><strong>Languages</strong><br>English, Hindi, Learning Mandarin</p></div>
+    <section id="work">
+      <div class="container">
+        <div class="section-head reveal"><div><p class="section-kicker">01 / Selected work</p><h2>Projects with a clear engineering story.</h2></div><p>Each project shows how I approach a problem, choose practical tools, validate the workflow, and document the result.</p></div>
+
+        <article class="building reveal" aria-labelledby="agentshield-title">
+          <div class="building-grid">
+            <div class="building-copy">
+              <div class="status"><span class="pulse"></span> Currently building</div>
+              <h3 id="agentshield-title">AgentShield</h3>
+              <p>A policy-as-code control plane that helps teams detect and explain risky coding-agent changes before they become incidents.</p>
+              <ul class="evidence"><li>Deterministic checks for secrets, workflows, and dependencies</li><li>Versioned rules with auditable decisions and explanations</li><li>Remediation playbooks, risk scores, approvals, and audit trails</li></ul>
+              <div class="tags"><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span><span class="tag">Policy-as-Code</span></div>
+              <div class="actions"><a class="btn btn-primary" href="https://github.com/sam300705/Agentshield" target="_blank" rel="noreferrer">View repository ↗</a></div>
+            </div>
+            <div class="scan-ui" aria-label="Stylized AgentShield dashboard preview">
+              <div class="window">
+                <div class="window-bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+                <div class="scan-body"><div class="scan-nav"><div class="scan-line"></div><div class="scan-line"></div><div class="scan-line"></div><div class="scan-line"></div></div><div class="scan-content"><div class="risk-row"><div><div class="risk-title"></div><div class="risk-sub"></div></div><span class="risk-badge">HIGH</span></div><div class="risk-row"><div><div class="risk-title"></div><div class="risk-sub"></div></div><span class="risk-badge">REVIEW</span></div><div class="risk-row"><div><div class="risk-title"></div><div class="risk-sub"></div></div><span class="risk-badge">PASS</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="project-grid" style="margin-top:20px">
+          <article class="project-card reveal">
+            <div class="project-visual" aria-label="Stylized SecondYouth mobile application preview"><div class="phone"><div class="phone-screen"><div class="phone-notch"></div><div class="hello">Good morning</div><h4>Your care, simplified.</h4><div class="health-card"><b>Today’s health</b><div class="health-row"><span>Heart rate</span><b>72 bpm</b></div><div class="health-row"><span>Medication</span><b>2 due</b></div></div><div class="medicine">Medicine reminder · 8:00 PM</div></div></div></div>
+            <div class="project-copy"><div class="project-meta"><span>2025 – Present</span><span>Web application</span></div><h3>SecondYouth</h3><p>A responsive senior-citizen assistance application with biometric-only login flows, settings, medicine deep linking, reusable components, and tested navigation across expected and edge-case scenarios.</p><div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">JavaScript</span><span class="tag">Tailwind CSS</span></div><div class="project-actions"><a class="btn btn-primary" href="https://second-youth.vercel.app" target="_blank" rel="noreferrer">Live demo ↗</a><a class="btn btn-secondary" href="https://github.com/sam300705/SecondYouth" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-visual" aria-label="Stylized ImgFlow terminal preview"><div class="terminal"><div class="terminal-head"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="terminal-body"><div><span class="cmd">$</span> imgflow convert wallpaper.jpg --theme nord</div><div class="terminal-swatch"><span></span><span></span><span></span><span></span><span></span></div><div><span class="output">✓</span> palette extracted</div><div><span class="output">✓</span> image recolored</div><div><span class="output">✓</span> output saved to wallpaper-nord.png</div></div></div></div>
+            <div class="project-copy"><div class="project-meta"><span>2025 – 2026</span><span>Open source CLI</span></div><h3>ImgFlow</h3><p>A Go-based image workflow toolkit supporting palette conversion, compression, OCR, format conversion, terminal previews, GIFs, background removal, effects, and Unix pipes and redirection.</p><div class="tags"><span class="tag">Go</span><span class="tag">Linux</span><span class="tag">CLI</span><span class="tag">Image processing</span></div><div class="project-actions"><a class="btn btn-primary" href="https://github.com/sam300705/imgflow" target="_blank" rel="noreferrer">View repository ↗</a></div></div>
+          </article>
+        </div>
       </div>
-    </div></section>
+    </section>
 
-    <section id="projects"><div class="wrap">
-      <div class="section-head"><span class="num">02</span><h2>Selected projects</h2></div>
-      <div class="cards">
-        <article class="card project"><div class="meta">ONGOING</div><h3>AgentShield</h3><div class="label">Policy-as-Code AI Agent Security Control Plane</div><div class="stack"><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span></div><p>Detects and explains risky coding-agent changes through deterministic checks for secrets, workflow logs, and dependency inventory. It uses versioned rules, auditable decisions, snapshots, remediation playbooks, and a dashboard for scan results, risk scores, approvals, and audit trails.</p><a class="button" target="_blank" rel="noreferrer" href="https://github.com/sam300705/Agentshield">GitHub ↗</a></article>
-        <article class="card project"><div class="meta">2025–PRESENT</div><h3>SecondYouth</h3><div class="label">Senior-Citizen Assistance Web Application</div><div class="stack"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">JavaScript</span><span class="tag">Tailwind CSS</span></div><p>A responsive web application for senior-citizen assistance workflows. Built reusable components and client-side navigation for biometric-only login, settings, and medicine deep linking, with workflow validation across expected and edge-case scenarios.</p><div class="actions"><a class="button" target="_blank" rel="noreferrer" href="https://second-youth.vercel.app">Live demo ↗</a><a class="button" target="_blank" rel="noreferrer" href="https://github.com/sam300705/SecondYouth">GitHub ↗</a></div></article>
-        <article class="card project"><div class="meta">2025–2026</div><h3>ImgFlow</h3><div class="label">Open-Source Image Processing CLI</div><div class="stack"><span class="tag">Go</span><span class="tag">Linux</span><span class="tag">CLI</span><span class="tag">Image Processing</span></div><p>An open-source Go CLI for image workflows including palette conversion, compression, OCR, format conversion, terminal preview, visual effects, pixel art, GIF creation, background removal, palette extraction, icon recoloring, and transformations. Supports Unix pipes and redirection with documented installation and source-build paths.</p><a class="button" target="_blank" rel="noreferrer" href="https://github.com/sam300705/imgflow">GitHub ↗</a></article>
+    <section id="about">
+      <div class="about-grid container">
+        <div class="about-card reveal"><div class="about-photo"><img src="assets/kumar-sambhav.webp" width="900" height="675" alt="Portrait of Kumar Sambhav"></div><div class="about-facts"><div class="fact"><span>Location</span><strong>Greater Noida</strong></div><div class="fact"><span>Degree</span><strong>B.Tech CS & IT</strong></div><div class="fact"><span>Graduation</span><strong>2027</strong></div><div class="fact"><span>Languages</span><strong>EN · HI · 中文*</strong></div></div></div>
+        <div class="about-copy reveal"><p class="section-kicker">02 / About</p><h2>Curious about systems. Serious about clarity.</h2><p>I’m a B.Tech student in Computer Science and Information Technology with hands-on project experience in <strong>AI-agent security, policy evaluations, workflow and dependency checks, React applications, and Go tooling.</strong></p><p>I enjoy taking a self-directed project from feature design through validation and documentation. I’m looking for an entry-level AI or data engineering opportunity where reliability, security, and thoughtful problem-solving matter.</p><div class="principles"><div class="principle"><b>Build for trust</b><span>Make decisions explainable, testable, and auditable.</span></div><div class="principle"><b>Document the path</b><span>Good software should be understandable after it ships.</span></div><div class="principle"><b>Validate the edges</b><span>Expected paths matter; edge cases reveal the design.</span></div><div class="principle"><b>Keep learning</b><span>English, Hindi, and currently learning Mandarin.</span></div></div></div>
       </div>
-    </div></section>
+    </section>
 
-    <section id="skills"><div class="wrap">
-      <div class="section-head"><span class="num">03</span><h2>Technical skills</h2></div>
-      <div class="skills">
-        <div class="skill-group"><div class="label">LANGUAGES & DATA</div><p>Python, TypeScript, JavaScript, SQL, DBMS, Data Structures and Algorithms, OOP Fundamentals</p></div>
-        <div class="skill-group"><div class="label">WEB & SECURITY</div><p>React.js, Policy-as-Code, GitHub, Security and Privacy Awareness, Responsible AI Awareness</p></div>
-        <div class="skill-group"><div class="label">ENGINEERING PRACTICE</div><p>Testing and Debugging, Technical Documentation, Git-based Development, Problem Solving</p></div>
-      </div>
-    </div></section>
+    <section id="skills">
+      <div class="container"><div class="section-head reveal"><div><p class="section-kicker">03 / Capabilities</p><h2>A practical, growing engineering toolkit.</h2></div><p>Skills listed here come directly from my current résumé and project work.</p></div><div class="skills-grid"><div class="skill-card reveal"><h3>Languages</h3><p>Python · TypeScript · JavaScript · SQL</p></div><div class="skill-card reveal"><h3>Web</h3><p>React.js · Vite · Tailwind CSS · Client-side navigation</p></div><div class="skill-card reveal"><h3>AI & Security</h3><p>Policy-as-Code · Security and privacy awareness · Responsible AI awareness</p></div><div class="skill-card reveal"><h3>Data & CS</h3><p>DBMS · Data structures and algorithms · OOP fundamentals</p></div><div class="skill-card reveal"><h3>Quality</h3><p>Testing and debugging · Workflow validation · Edge-case analysis</p></div><div class="skill-card reveal"><h3>Engineering practice</h3><p>GitHub · Git-based development · Technical documentation · Problem solving</p></div></div></div>
+    </section>
 
-    <section id="experience"><div class="wrap">
-      <div class="section-head"><span class="num">04</span><h2>Experience & education</h2></div>
-      <div class="grid">
-        <div><div class="item"><div class="meta">2025–PRESENT</div><h3>Independent Software Project Developer</h3><p class="sub">Self-directed project work</p><p>Developing AgentShield, a policy-as-code AI-agent security control plane with deterministic checks, workflow and dependency inventory, auditable decisions, and remediation playbooks. Built and validated SecondYouth and ImgFlow, documenting workflows, edge cases, installation, source-build, and image-processing processes.</p></div></div>
-        <div class="education"><div class="card"><div class="label">2023–2027</div><h3>Dronacharya Group of Institutions</h3><p>B.Tech, Computer Science and Information Technology, AKTU<br>Greater Noida</p></div><div class="card"><div class="label">2023</div><h3>PT B P Saraswati Vidya Mandir</h3><p>Class XII, CBSE<br>Bokaro, Jharkhand</p></div><div class="card"><div class="label">2021</div><h3>De Nobili School</h3><p>Class X, ICSE<br>Chandrapura, Jharkhand</p></div></div>
-      </div>
-    </div></section>
+    <section id="experience">
+      <div class="container"><div class="section-head reveal"><div><p class="section-kicker">04 / Experience</p><h2>Self-directed work, shipped with ownership.</h2></div></div><div class="timeline reveal"><div class="timeline-date">2025 – Present</div><div class="timeline-content"><h3>Independent Software Project Developer</h3><p class="role">Self-directed project work</p><ul><li>Developing AgentShield, a policy-as-code AI-agent security control plane with deterministic checks, workflow and dependency inventory, auditable decisions, and remediation playbooks.</li><li>Built and validated SecondYouth and ImgFlow, documenting application workflows, edge cases, installation, source-build, and image-processing workflows.</li></ul></div></div></div>
+    </section>
 
-    <section><div class="wrap">
-      <div class="section-head"><span class="num">05</span><h2>Certifications & training</h2></div>
-      <div class="tags"><span class="tag">Introduction to Software Testing — Mar 2026</span><span class="tag">Networking Basics, Cisco — Mar 2026</span><span class="tag">Cloud Code in Action, Anthropic — Apr 2026</span><span class="tag">Introduction to Cybersecurity, Cisco — Apr 2025</span><span class="tag">British Airways Data Science Job Simulation, Forage — Mar 2026</span></div>
-    </div></section>
+    <section id="education">
+      <div class="container"><div class="section-head reveal"><div><p class="section-kicker">05 / Foundation</p><h2>Education, certifications & training.</h2></div></div><div class="education-grid"><article class="edu reveal"><div class="year">2023 – 2027</div><h3>Dronacharya Group of Institutions</h3><p>B.Tech in Computer Science and Information Technology · AKTU · Greater Noida</p></article><article class="edu reveal"><div class="year">Class XII · 2023</div><h3>PT B P Saraswati Vidya Mandir</h3><p>CBSE · Bokaro, Jharkhand</p></article><article class="edu reveal"><div class="year">Class X · 2021</div><h3>De Nobili School</h3><p>ICSE · Chandrapura, Jharkhand</p></article></div><div class="cert-list"><div class="cert reveal"><strong>Introduction to Software Testing</strong><span>March 2026</span></div><div class="cert reveal"><strong>Networking Basics · Cisco</strong><span>March 2026</span></div><div class="cert reveal"><strong>Cloud Code in Action · Anthropic</strong><span>April 2026</span></div><div class="cert reveal"><strong>Introduction to Cybersecurity · Cisco</strong><span>April 2025</span></div><div class="cert reveal"><strong>British Airways Data Science Job Simulation</strong><span>Forage · March 2026</span></div></div></div>
+    </section>
 
-    <section id="contact" class="contact"><div class="wrap">
-      <p class="eyebrow">LET'S CONNECT</p><h2>Building secure, useful software—one project at a time.</h2>
-      <p>Open to entry-level AI and data engineering opportunities.</p>
-      <div class="actions"><a class="button primary" href="mailto:krsambhav05@gmail.com">krsambhav05@gmail.com</a><a class="button" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/kumar-sambhav1/">LinkedIn ↗</a><a class="button" target="_blank" rel="noreferrer" href="https://github.com/sam300705">GitHub ↗</a></div>
-    </div></section>
+    <section id="contact">
+      <div class="container"><div class="contact-card reveal"><div><p class="section-kicker">06 / Contact</p><h2>Let’s build something reliable.</h2><p>I’m open to entry-level AI and data engineering opportunities, thoughtful collaborations, and conversations about secure developer tooling.</p><div class="actions"><a class="btn btn-primary" href="mailto:krsambhav05@gmail.com">Send an email</a><a class="btn btn-secondary" href="assets/Kumar-Sambhav-Resume.pdf" download>Download résumé</a></div></div><div class="contact-links"><a class="contact-link" href="mailto:krsambhav05@gmail.com">Email <span>↗</span></a><a class="contact-link" href="https://www.linkedin.com/in/kumar-sambhav1/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a><a class="contact-link" href="https://github.com/sam300705" target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a class="contact-link" href="tel:+918252581619">+91 8252581619 <span>↗</span></a></div></div></div>
+    </section>
   </main>
-  <footer><div class="wrap">© 2026 Kumar Sambhav · Built from verified resume information.</div></footer>
+
+  <footer><div class="footer-row container"><span>© <span id="year">2026</span> Kumar Sambhav. Built with care.</span><span>AI · DATA · SECURITY · OPEN SOURCE</span></div></footer>
+  <script>
+    const menuButton = document.querySelector('.menu-btn');
+    const navigation = document.querySelector('#nav-links');
+    menuButton.addEventListener('click', () => {
+      const open = navigation.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.textContent = open ? '×' : '☰';
+    });
+    navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navigation.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = '☰';
+    }));
+    document.querySelector('#year').textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    }), { threshold: .08 });
+    document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+  </script>
 </body>
 </html>

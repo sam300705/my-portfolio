@@ -1,33 +1,34 @@
-# Kumar Sambhav | Associate AI & Data Engineer
+# Kumar Sambhav | AI & Data Engineer Portfolio
 
-Personal portfolio for Kumar Sambhav, a B.Tech Computer Science and Information Technology student (2023-2027) focused on reliable, secure, and data-informed software.
+Personal portfolio for Kumar Sambhav, a B.Tech Computer Science and Information Technology student graduating in 2027 and focused on secure, reliable, and data-informed software.
 
 **Live site:** [sambhavcodes.in](https://sambhavcodes.in)
 
-## Focus
+## Highlights
 
-- AI-agent security tooling and policy-as-code
-- Python, TypeScript, JavaScript, SQL, and DBMS
-- React applications, workflow validation, testing, debugging, and technical documentation
-- Go CLI tooling and Linux workflows
+- Recruiter-focused responsive portfolio with accessible navigation
+- Downloadable current résumé and professional profile photo
+- Project storytelling for AgentShield, SecondYouth, and ImgFlow
+- SEO metadata, structured data, social preview, favicon, sitemap, and web manifest
+- Reduced-motion support and mobile navigation
 
 ## Selected projects
 
-### AgentShield - Policy-as-Code AI Agent Security Control Plane
+### AgentShield
 
-Ongoing project that detects and explains risky coding-agent changes with deterministic checks for secrets, workflow logs, and dependency inventory. It includes versioned rules, auditable decisions, snapshots, remediation playbooks, and a React/Vite/Tailwind dashboard for scan results, risk scores, approvals, and audit trails.
+Policy-as-code AI-agent security control plane with deterministic checks, workflow and dependency inventory, auditable decisions, remediation playbooks, risk scores, approvals, and audit trails.
 
 [Repository](https://github.com/sam300705/Agentshield)
 
-### SecondYouth - Senior-Citizen Assistance Web Application
+### SecondYouth
 
-Responsive React/Vite application for senior-citizen assistance workflows. Features reusable components and client-side navigation for biometric-only login, settings, and medicine deep linking, validated across expected and edge-case scenarios.
+Responsive senior-citizen assistance application with biometric-only login flows, settings, medicine deep linking, reusable components, and validated navigation.
 
 [Live demo](https://second-youth.vercel.app) · [Repository](https://github.com/sam300705/SecondYouth)
 
-### ImgFlow - Open-Source Image Processing CLI
+### ImgFlow
 
-Open-source Go CLI for image workflows including theme and palette conversion, compression, OCR, format conversion, terminal preview, visual effects, Unix pipes and redirection, pixel art, GIF creation, background removal, palette extraction, icon recoloring, and image transformations.
+Open-source Go CLI for palette conversion, compression, OCR, format conversion, terminal previews, GIFs, background removal, effects, and Unix pipes and redirection.
 
 [Repository](https://github.com/sam300705/imgflow)
 
@@ -36,4 +37,4 @@ Open-source Go CLI for image workflows including theme and palette conversion, c
 - [Portfolio](https://sambhavcodes.in)
 - [GitHub](https://github.com/sam300705)
 - [LinkedIn](https://www.linkedin.com/in/kumar-sambhav1/)
-- Email: [krsambhav05@gmail.com](mailto:krsambhav05@gmail.com)
+- [Email](mailto:krsambhav05@gmail.com)
