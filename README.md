@@ -22,9 +22,9 @@ Policy-as-code AI-agent security control plane with deterministic checks, workfl
 
 ### SecondYouth
 
-Responsive senior-citizen assistance application with biometric-only login flows, settings, medicine deep linking, reusable components, and validated navigation.
+Enterprise-ready senior-assistance platform foundation with an offline-first React experience, secure Node API, rotating sessions, RBAC primitives, rate limiting, structured observability, and a safety-bounded AI assistant.
 
-[Live demo](https://second-youth.vercel.app) · [Repository](https://github.com/sam300705/SecondYouth)
+[Live site](https://vridhcare.in) · [Deployment](https://second-youth.vercel.app) · [Repository](https://github.com/sam300705/SecondYouth)
 
 ### ImgFlow
 
