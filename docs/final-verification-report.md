@@ -49,7 +49,11 @@ The LinkedIn URL redirected to LinkedIn’s public authwall in the audit environ
 
 ## Preview instructions
 
-Run `npm install`, `npm run build`, then `npm run preview`. The local production preview is available at `http://127.0.0.1:4173/`. The branch includes the screenshot capture and audit scripts under `tests/`.
+Run `npm install`, `npm run build`, then `npm run preview`. The local production preview is available at `http://127.0.0.1:4173/`. A temporary review URL is available at https://4173-iqts8ya636brw8r83qn97-710e9390.us3.manus.computer while this session remains active. The branch includes the screenshot capture and audit scripts under `tests/`.
+
+## Pull request
+
+Review the open pull request at https://github.com/sam300705/my-portfolio/pull/1. It targets `main`, remains unmerged, and does not deploy the production custom domain.
 
 ## Rollback
 
