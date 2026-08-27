@@ -2,7 +2,7 @@
 
 ## Scope
 
-This branch redesigns the portfolio around **Kumar Sambhav — Software Developer | JavaScript & TypeScript**, with evidence-backed case studies for AgentShield and NeuroInsight AI, secondary work for SecondYouth and ImgFlow, and a premium editorial-engineering visual system. Production was not deployed and `main` was not merged.
+This branch redesigns the portfolio around **Kumar Sambhav — Software Developer | JavaScript & TypeScript**, with evidence-backed case studies for AgentShield and NeuroInsight AI, secondary work for SecondYouth and ImgFlow, and a premium editorial-engineering visual system. The latest revision replaces the over-zoomed portrait treatment with the complete native square portrait inside a smaller, calmer card and adds an explicit role line in the hero. Production was not deployed and `main` was not merged.
 
 ## Changes completed
 
@@ -24,7 +24,7 @@ The public contact area now contains email, GitHub, LinkedIn, and portfolio link
 | Lighthouse Accessibility | 100 |
 | Lighthouse Best Practices | 100 |
 | Lighthouse SEO | 100 |
-| Lighthouse LCP | 1.4 seconds |
+| Lighthouse LCP | 1.1 seconds |
 | Lighthouse CLS | 0 |
 | Lighthouse INP | Not reported by this Lighthouse run. |
 | Public link check | Passed with HTTP 200 for portfolio, four project repositories, SecondYouth live site, NeuroInsight public dashboard, and local preview resume asset. |
@@ -49,7 +49,7 @@ The LinkedIn URL redirected to LinkedIn’s public authwall in the audit environ
 
 ## Preview instructions
 
-Run `npm install`, `npm run build`, then `npm run preview`. The local production preview is available at `http://127.0.0.1:4173/`. A temporary review URL is available at https://4173-iqts8ya636brw8r83qn97-710e9390.us3.manus.computer while this session remains active. The branch includes the screenshot capture and audit scripts under `tests/`.
+Run `npm install`, `npm run build`, then `npm run preview`. The local production preview is available at `http://127.0.0.1:4173/`. A temporary review URL is available at https://4175-iqts8ya636brw8r83qn97-710e9390.us3.manus.computer while this session remains active. The branch includes the screenshot capture and audit scripts under `tests/`.
 
 ## Pull request
 
