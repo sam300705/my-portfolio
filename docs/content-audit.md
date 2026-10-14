@@ -38,3 +38,15 @@ The supplied latest resume named `Kumar_Sambhav_Software_Developer_ATS_Resume (5
 4. [SecondYouth repository](https://github.com/sam300705/SecondYouth)
 5. [ImgFlow repository](https://github.com/sam300705/imgflow)
 6. [LinkedIn profile](https://in.linkedin.com/in/kumar-sambhav1)
+
+## V3 project additions (2026-10-14)
+
+- **ScopeLedger:** public repository `sam300705/scopeledger` documents workspace isolation, role-aware authorization, minor-unit server pricing, evidence-backed approvals, version checks, and audit/history export. Presented as an **internal pilot**, not as public SaaS.
+- **EstateFlow and AdmissionOS:** public READMEs confirm demo-first Next.js/TypeScript MVPs. Browser-local records reset on refresh; PostgreSQL production schemas are future persistence contracts, not deployed multi-tenant data stores.
+- **NewsOS:** main README identifies feature-branch application work. Archive labels it development-branch work.
+- **MRO Equipment Health Monitor:** README documents C# WinForms charts, sensor thresholds, and PDF exports.
+- **Predictive RUL Estimation:** README documents a NASA CMAPSS FD001 Random Forest/feature-engineering notebook, with no invented model metric.
+- **Technical Strategy Copilot:** repository was empty at inspection; listed clearly as concept only.
+- **JobRadar AI and Interactive Wall Calendar:** descriptions are intentionally generic pending source-specific verification of completed features.
+
+No artificial downloads, CVE-scan claims, clinical efficacy claims, customers, or revenue are added.

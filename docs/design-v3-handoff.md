@@ -30,3 +30,25 @@
 `npm run test:smoke` and `npm run test:a11y` against a local preview.
 Inspect 320, 390, 768, 1024, 1440px widths, keyboard dialog navigation, project links, hero photo, and page performance.
 Review the live published artifact separately after any authorized deployment.
+
+## Figma design handoff
+
+Existing file: https://www.figma.com/design/MuG5GZPLCkFp4DqI6Ue5zS
+- Editable V3 desktop: https://www.figma.com/design/MuG5GZPLCkFp4DqI6Ue5zS?node-id=21-13
+- Editable V3 mobile: https://www.figma.com/design/MuG5GZPLCkFp4DqI6Ue5zS?node-id=23-2
+- V3 variable collection: `Portfolio V3 / Midnight Mineral` (9 color variables).
+- Original Figma pages untouched; V3 designs are editable concept/specification layers, not rasterized website captures.
+
+## Verification evidence and recovery log
+
+- PASS: GitHub source JS syntax compile checks on commit `b58ab7d`.
+- PASS: 5 featured projects, 8 archived entries, unique HTML IDs, balanced CSS braces, no phone in public markup.
+- PASS: Vercel **preview** for `b58ab7d` reported READY; browser UI behavior not independently proven.
+- PARTIAL: V3 Figma desktop screenshot inspected; mobile screenshot initially showed text overlap because resizing reset `textAutoResize` to NONE. Fixed all 49 mobile text nodes to HEIGHT after sizing; final screenshot shows no overlap.
+- NOT RUN: Automated CI and browser tests until branch workflow run completes.
+- NOT RUN: Live production, which still tracks original `main`.
+- Local checkout blocker: the execution container could not resolve github.com, so a direct `git clone` was not possible; GitHub connector performed non-destructive commits.
+
+## Merge sequence
+
+Stack is **PR #1 (V2) → PR #2 (V3)**; PR #2 targets `feature/premium-portfolio-v2`. Do not merge either without explicit owner authorization. Production remains unchanged.

@@ -73,3 +73,11 @@ The `design/midnight-mineral-v3` branch builds on the existing V2 pull request, 
 - Does not replace the authoritative résumé, modify LinkedIn, merge, or deploy.
 
 Review `docs/design-v3-handoff.md` before merging. Validate from the final commit with npm tests, build, browser accessibility and responsive checks.
+
+### V3 Figma / review
+
+- [Editable desktop design](https://www.figma.com/design/MuG5GZPLCkFp4DqI6Ue5zS?node-id=21-13)
+- [Editable mobile design](https://www.figma.com/design/MuG5GZPLCkFp4DqI6Ue5zS?node-id=23-2)
+- [Stacked draft PR #2](https://github.com/sam300705/my-portfolio/pull/2)
+
+V3 changes should pass `.github/workflows/portfolio-quality.yml`; verification and outstanding gates are in `docs/design-v3-handoff.md`.
