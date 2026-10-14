@@ -1,0 +1,36 @@
+name: Dependency lock repair proposal
+on:
+  push:
+    branches:
+      - design/midnight-mineral-v3
+permissions:
+  contents: read
+jobs:
+  propose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Propose removal of unused Lighthouse and safe audit updates
+        run: |
+          npm uninstall lighthouse --save-dev --package-lock-only --ignore-scripts
+          npm audit fix --package-lock-only --ignore-scripts || true
+      - name: Confirm lockfile installs
+        run: npm ci
+      - name: Unit tests and build
+        run: |
+          npm test
+          npm run build
+      - name: Summarize remaining vulnerabilities
+        run: |
+          npm audit --json > /tmp/portfolio-audit.json || true
+          node -e "const a=require('/tmp/portfolio-audit.json');console.log('REPAIRED_AUDIT='+JSON.stringify(a.metadata?.vulnerabilities||{}));console.log('HIGH_PACKAGES='+JSON.stringify(Object.entries(a.vulnerabilities||{}).filter(([n,v])=>['high','critical'].includes(v.severity)).map(([n,v])=>n)))"
+      - name: Emit reviewable dependency proposals
+        run: |
+          node -e "const fs=require('node:fs');for(const [id,file] of [['PACKAGE_JSON','package.json'],['PACKAGE_LOCK','package-lock.json']]){console.log('START_'+id+'_BASE64');console.log(Buffer.from(fs.readFileSync(file)).toString('base64'));console.log('END_'+id+'_BASE64')}"
