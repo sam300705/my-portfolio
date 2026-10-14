@@ -23,6 +23,14 @@ if (await page.locator('#brief-close').evaluate(node => document.activeElement !
 await page.keyboard.press('Escape');
 if (await page.locator('#brief-panel').getAttribute('aria-hidden') !== 'true') throw new Error('Recruiter Brief did not close with Escape');
 if (await page.locator('#brief-open').evaluate(node => document.activeElement !== node)) throw new Error('Focus did not return to recruiter brief trigger');
+await page.goto(`${baseURL}/case-study.html?project=agentshield`,{waitUntil:'networkidle'});
+if ((await page.locator('#case-title').textContent() || '').trim() !== 'AgentShield.') throw new Error('Case study title missing');
+for(const id of ['context','architecture','evidence','limitations']) {
+  if(await page.locator(`#${id}`).count() !== 1) throw new Error(`Missing case study section ${id}`);
+}
+await page.goto(`${baseURL}/case-study.html?project=missing`,{waitUntil:'networkidle'});
+if(!(await page.locator('h1').textContent()).includes('No case study'))throw new Error('Invalid project fallback missing');
+await page.goto(baseURL,{waitUntil:'networkidle'});
 const resume = await page.request.get(`${baseURL}/assets/Kumar-Sambhav-Software-Developer-Resume.pdf`);
 if (!resume.ok() || (resume.headers()['content-type'] || '').includes('html')) throw new Error('Resume asset is unavailable');
 if (consoleErrors.length) throw new Error(`Console errors: ${consoleErrors.join('; ')}`);

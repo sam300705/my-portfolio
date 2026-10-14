@@ -65,3 +65,7 @@ Stack is **PR #1 (V2) → PR #2 (V3)**; PR #2 targets `feature/premium-portfolio
 - Automated accessibility run now also inspects 320px.
 - Browser interaction tests check recruiter dialog initial focus, Shift+Tab wrap, Tab wrap, Escape close, and trigger focus restoration.
 - Do not mark these as passed until the CI run against this exact new commit succeeds.
+
+## Dedicated case-study routes
+
+All five featured projects link to `/case-study.html?project=...`, a multi-page Vite route using verified source material in the existing data model. The case study covers context, architecture, implementation evidence, limitations and secure repository links; unknown IDs have a safe fallback. Browser smoke tests cover AgentShield and the unknown-project case. Screenshots and extensive personal decision diaries are not invented; source assets and author narratives are remaining enhancements.

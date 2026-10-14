@@ -65,3 +65,16 @@ test('recruiter brief traps keyboard focus and restores the opener', () => {
   assert.match(app, /last\.focus\(\)/);
   assert.match(app, /previousFocus/);
 });
+
+test('five case studies have a real Vite route, safe project selection and repository evidence', () => {
+  const page = fs.readFileSync(path.join(root,'case-study.html'),'utf8');
+  const script = fs.readFileSync(path.join(root,'src/case-study.js'),'utf8');
+  const vite = fs.readFileSync(path.join(root,'vite.config.js'),'utf8');
+  assert.match(app,/case-study\\.html\\?project=/);
+  assert.match(page,/id="case-root"/);
+  assert.match(script,/portfolio\\.projects\\.find/);
+  assert.match(script,/project\\.evidence\\.map/);
+  assert.match(script,/esc\\(/);
+  assert.match(script,/noopener noreferrer/);
+  assert.match(vite,/caseStudy/);
+});

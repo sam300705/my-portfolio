@@ -20,7 +20,7 @@ function projectMarkup(project) {
       <div class="project-tags">${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}</div>
       <div class="project-evidence">${project.evidence.map((item, index) => `<div class="evidence"><strong>Evidence ${String(index + 1).padStart(2, '0')}</strong>${item}</div>`).join('')}</div>
       <p class="boundary"><strong>Boundary:</strong> ${project.boundaries}</p>
-      <div class="project-links">${external(project.repo)} ${demoLink(project.demo)}</div>
+      <div class="project-links"><a class="text-link" href="/case-study.html?project=${encodeURIComponent(project.id)}">Read case study ↗</a> ${external(project.repo)} ${demoLink(project.demo)}</div>
     </div>
   </article>`;
 }
