@@ -1,0 +1,24 @@
+{
+  "name": "kumar-sambhav-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/portfolio.test.mjs",
+    "check": "npm run test",
+    "test:smoke": "node tests/smoke.mjs",
+    "test:a11y": "node tests/accessibility.mjs",
+    "capture": "node tests/capture.mjs",
+    "format:check": "prettier --check index.html src docs package.json site.webmanifest robots.txt sitemap.xml"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.62.1",
+    "lighthouse": "^12.8.2",
+    "prettier": "^3.6.2",
+    "vite": "^7.1.7"
+  }
+}

@@ -1,0 +1,24 @@
+import { chromium } from 'playwright';
+
+const baseURL = process.env.BASE_URL || 'http://127.0.0.1:4173';
+const browser = await chromium.launch({ headless: true });
+const page = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' });
+const consoleErrors = [];
+page.on('console', (message) => { if (message.type() === 'error') consoleErrors.push(message.text()); });
+page.on('pageerror', (error) => consoleErrors.push(error.message));
+await page.goto(baseURL, { waitUntil: 'networkidle' });
+if (await page.title() !== 'Kumar Sambhav | Software Developer | JavaScript & TypeScript') throw new Error('Unexpected page title');
+if (await page.locator('body').evaluate((node) => node.scrollWidth > document.documentElement.clientWidth)) throw new Error('Horizontal overflow at 390px');
+await page.locator('#scan-button').click();
+await page.waitForTimeout(650);
+if (!(await page.locator('#scan-result').textContent()).includes('REQUIRE_APPROVAL')) throw new Error('Policy result missing');
+await page.locator('#menu-toggle').click();
+await page.locator('#brief-open').click();
+if (await page.locator('#brief-panel').getAttribute('aria-hidden') !== 'false') throw new Error('Recruiter Brief did not open');
+await page.keyboard.press('Escape');
+if (await page.locator('#brief-panel').getAttribute('aria-hidden') !== 'true') throw new Error('Recruiter Brief did not close with Escape');
+const resume = await page.request.get(`${baseURL}/assets/Kumar-Sambhav-Software-Developer-Resume.pdf`);
+if (!resume.ok() || (resume.headers()['content-type'] || '').includes('html')) throw new Error('Resume asset is unavailable');
+if (consoleErrors.length) throw new Error(`Console errors: ${consoleErrors.join('; ')}`);
+console.log('Playwright smoke: passed at 390px reduced-motion viewport');
+await browser.close();
