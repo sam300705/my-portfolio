@@ -78,3 +78,25 @@ test('five case studies provide real Vite routes and source evidence', () => {
   assert.ok(script.includes('noopener noreferrer'));
   assert.ok(vite.includes('caseStudy'));
 });
+
+test('resume-aligned CSE degree and professional skill list omit coursework-only languages', () => {
+  assert.ok(data.includes('B.Tech in Computer Science and Engineering'));
+  assert.ok(!html.includes('Computer Science and Information Technology'));
+  assert.ok(!html.includes('CSIT'));
+  assert.ok(data.includes('Cloudflare Workers'));
+  assert.ok(data.includes('Cloudflare D1'));
+  const skillSlice = data.slice(data.indexOf('skills: ['), data.indexOf('research: {'));
+  assert.ok(!skillSlice.includes("'Python'"));
+  assert.ok(!skillSlice.includes("'Java'"));
+  assert.ok(!skillSlice.includes("'C++'"));
+});
+test('EASEC-19 research role and certifications are represented without invented publication', () => {
+  assert.ok(html.includes('id="research"'));
+  assert.ok(html.includes('id="training-section"'));
+  assert.ok(data.includes('Smart Sensing Air Stations with Advanced WSN and IoT Security'));
+  assert.ok(data.includes('Technical Research Delegation Member'));
+  assert.ok(data.includes('not been independently verified'));
+  assert.ok(data.includes('Cisco Networking Academy'));
+  assert.ok(data.includes('Claude Code in Action'));
+  assert.ok(app.includes('research-contributions'));
+});

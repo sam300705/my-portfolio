@@ -378,3 +378,24 @@ footer { padding: 2.3rem 0; border-top: 1px solid var(--line); background: var(-
 @media (prefers-reduced-motion: reduce) {
   .case-study summary span,.archive-row a { transition: none; }
 }
+
+/* Research and certification sections / Midnight Mineral */
+.research-feature{display:grid;grid-template-columns:minmax(190px,.54fr) minmax(0,1.46fr);gap:clamp(2rem,7vw,7rem);border-top:1px solid var(--line);padding:clamp(2rem,5vw,5rem) 0}
+.research-meta{display:flex;flex-direction:column;align-items:flex-start;gap:.8rem;color:var(--muted);font-size:.86rem}
+.research-meta .mono,.research-category{color:var(--bronze);font-size:.69rem}
+.research-meta strong{display:inline-block;margin-top:1.3rem;padding:.65rem .9rem;border:1px solid var(--line);color:var(--accent);font-size:.82rem;font-weight:500}
+.research-story h3{font-size:clamp(2.15rem,4.1vw,4.5rem);line-height:1.13;letter-spacing:-.055em;font-weight:600;max-width:900px;overflow-wrap:anywhere}
+.research-story>p:not(.mono){max-width:730px;line-height:1.85;color:var(--muted);font-size:1rem}
+.research-contributions{padding:0;margin:2.5rem 0;list-style:none;border-top:1px solid var(--line)}
+.research-contributions li{display:grid;grid-template-columns:50px minmax(0,1fr);gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.research-contributions li .mono{color:var(--bronze)}
+.research-contributions li p{margin:0;line-height:1.7;color:var(--ink)}
+.research-story p.research-caveat{margin:1.6rem 0;padding-left:1rem;border-left:2px solid var(--bronze);font-size:.81rem}
+.training-section{background:#111f21}
+.training-list{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.training-row{display:grid;grid-template-columns:45px minmax(0,1.3fr) minmax(140px,.8fr) minmax(100px,.45fr);gap:1.4rem;align-items:center;padding:1.4rem 0;border-bottom:1px solid var(--line)}
+.training-row .mono{color:var(--bronze)}
+.training-row strong{font-size:clamp(1.05rem,1.5vw,1.4rem);letter-spacing:-.025em;font-weight:600}
+.training-row>span:not(.mono),.training-row time{color:var(--muted);font-size:.83rem}
+@media(max-width:800px){.research-feature{grid-template-columns:1fr;gap:2rem}.training-row{grid-template-columns:40px minmax(0,1fr);gap:.45rem .9rem}.training-row>span:not(.mono),.training-row time{grid-column:2}}
+@media(max-width:390px){.research-story h3{font-size:clamp(1.95rem,9vw,2.6rem)}.research-contributions li{grid-template-columns:36px minmax(0,1fr)}}

@@ -81,3 +81,7 @@ Review `docs/design-v3-handoff.md` before merging. Validate from the final commi
 - [Stacked draft PR #2](https://github.com/sam300705/my-portfolio/pull/2)
 
 V3 changes should pass `.github/workflows/portfolio-quality.yml`; verification and outstanding gates are in `docs/design-v3-handoff.md`.
+
+### Resume-aligned research and skills
+
+The research section credits technical delegation participation in `Smart Sensing Air Stations with Advanced WSN and IoT Security` (EASEC-19, Kuala Lumpur, July 2026). The degree is now B.Tech **CSE**, and showcased skills emphasize demonstrated JS/TS/full-stack/cloud tools rather than college-only languages. Four training entries and updated project details come from the current uploaded résumé. The downloadable PDF currently remains an older fallback pending binary asset transfer.

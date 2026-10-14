@@ -36,8 +36,8 @@ export const portfolio = {
       subtitle: 'Non-Diagnostic MRI Research Dashboard',
       description: 'A research-oriented TypeScript, React, and Express application that makes upload validation, experimental result views, consent-gated history, and scientific limitations visible in the product experience.',
       problem: 'Experimental medical-imaging interfaces need to communicate uncertainty, privacy boundaries, and deployment gates instead of implying clinical authority.',
-      architecture: 'React + TypeScript client · Express application layer · separate FastAPI validation service · protected derived artifacts · documented dataset provenance',
-      evidence: ['English/Hindi interface with accessible navigation and persistent non-diagnostic messaging', 'Corrupt-upload validation, consent-gated history, and retention of derived artifacts plus anonymous metadata', 'Raw MRI uploads and patient identifiers are excluded; dataset provenance, limitations, and release gates are documented'],
+      architecture: 'React + TypeScript client · Express backend · experimental ResNet50 / Grad-CAM workflow · consent-aware derived artifacts and upload validation',
+      evidence: ['Experimental 2D MRI classification workflow using ResNet50-based inference and Grad-CAM attribution', 'Corrupt-upload validation, consent-gated derived artifacts and privacy-aware research metadata', 'Documented non-diagnostic boundaries; no clinical accuracy, patient-benefit or diagnostic claims'],
       boundaries: 'This is an academic research dashboard, not a medical device. No clinical accuracy, patient benefit, or diagnostic capability is claimed.',
       repo: 'https://github.com/sam300705/neuroinsight-ai',
       demo: 'https://neuroaiapp-gtbxy6cw.manus.space',
@@ -84,8 +84,8 @@ export const portfolio = {
       subtitle: 'Evidence-led change control for service teams',
       description: 'A working pilot for fixed-scope service firms: capture the original agreement, calculate the cost of extra work, and retain the decision trail.',
       problem: 'Scope changes become difficult to price or defend when approvals, dates, and original agreements live across disconnected messages.',
-      architecture: 'Workspace-scoped authorization · role-aware workflows · server-priced change requests · version checks · history and export',
-      evidence: ['Company workspace isolation on API operations with owner, editor, reviewer and viewer roles', 'Server-calculated change prices in integer minor units and lifecycle transitions with version checks', 'Approval evidence, atomic activity/history records, searchable views, and guarded CSV export'],
+      architecture: 'Cloudflare Workers + D1 persistence · workspace-based data separation · server-priced client approvals · version checks · history and CSV export',
+      evidence: ['Cloudflare Workers backend routes, Cloudflare D1 persistence and explicit workspace identifiers', 'Workflow from client-request review through pricing adjustments and approval transitions', 'Guarded CSV exports, approval evidence and change history for the internal pilot'],
       boundaries: 'A working internal B2B pilot, not a general public SaaS or certified billing platform. Hosting access limits the audience.',
       repo: 'https://github.com/sam300705/scopeledger',
       demo: null,
@@ -100,24 +100,45 @@ export const portfolio = {
     { title: 'JobRadar AI', category: 'Applied AI', summary: 'Job-discovery and application-workflow experiment; inspect the repository for current capabilities.', status: 'Experimental', repo: 'https://github.com/sam300705/JobRadar-AI', stack: 'AI / workflow' },
     { title: 'Interactive Wall Calendar', category: 'Interface experiment', summary: 'Calendar-interface exploration built as an independent prototype.', status: 'Prototype', repo: 'https://github.com/sam300705/interactive-wall-calendar', stack: 'Web interface' },
     { title: 'MRO Equipment Health Monitor', category: 'Desktop tooling', summary: 'WinForms sensor-data viewer with thresholds, visual alerts, charts, and PDF reporting.', status: 'Desktop demo', repo: 'https://github.com/sam300705/mro-equipment-health-monitor', stack: 'C# / .NET' },
-    { title: 'Predictive RUL Estimation', category: 'ML research', summary: 'NASA CMAPSS FD001 engine remaining-useful-life experiment using feature engineering and a Random Forest model.', status: 'Research notebook', repo: 'https://github.com/sam300705/Predictive-RUL-Estimation', stack: 'Python / ML' },
+    { title: 'Predictive RUL Estimation', category: 'ML research', summary: 'NASA CMAPSS FD001 engine remaining-useful-life experiment using feature engineering and a Random Forest model.', status: 'Research notebook', repo: 'https://github.com/sam300705/Predictive-RUL-Estimation', stack: 'ML research / notebook' },
     { title: 'Technical Strategy Copilot', category: 'AI exploration', summary: 'An early technical-planning copilot idea with an initialized repository.', status: 'Empty repository · concept only', repo: 'https://github.com/sam300705/technical-strategy-copilot', stack: 'Concept' }
   ],
   skills: [
-    { group: 'Secure systems', items: ['TypeScript', 'Node.js', 'Express.js', 'REST APIs', 'PostgreSQL', 'SQL'] },
-    { group: 'Applied AI', items: ['Python', 'ML research', 'Model evaluation', 'Explainability'] },
-    { group: 'Product engineering', items: ['JavaScript', 'React.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Vite'] },
-    { group: 'Developer workflow', items: ['Git', 'GitHub', 'Go', 'CLI tooling'] }
+    { group: 'Languages & interfaces', items: ['JavaScript (ES6+)', 'TypeScript', 'SQL', 'HTML5', 'CSS3'] },
+    { group: 'Full-stack engineering', items: ['React', 'Next.js', 'Node.js', 'Express.js', 'REST APIs', 'PostgreSQL', 'Supabase'] },
+    { group: 'Cloud & delivery', items: ['Cloudflare Workers', 'Cloudflare D1', 'Vercel', 'Docker', 'Git', 'GitHub'] },
+    { group: 'AI & API integration', items: ['AI / LLM API integration', 'Structured outputs', 'AI agent concepts'] }
+  ],
+  research: {
+    title: 'Smart Sensing Air Stations with Advanced WSN and IoT Security',
+    event: 'EASEC-19 · 19th East Asia-Pacific Conference on Structural Engineering and Construction',
+    location: 'Kuala Lumpur, Malaysia',
+    date: 'July 2026',
+    role: 'Technical Research Delegation Member · Dronacharya Group of Institutions',
+    description: 'Research on environmental-monitoring air stations, wireless sensor networks, and transmission security in distributed IoT systems.',
+    contributions: [
+      'Supported literature review covering wireless sensor networks and transmission security.',
+      'Helped prepare technical documentation and architecture diagrams for the research delegation.',
+      'Examined edge-node communication constraints, data-flow integrity and connectivity challenges.'
+    ],
+    caveat: 'Technical research delegation contribution. Individual paper authorship, DOI and indexed publication status have not been independently verified.',
+    conferenceUrl: 'https://www.ukm.my/easec19/'
+  },
+  training: [
+    { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Apr 2026' },
+    { name: 'OS Basics, Networking Basics & Cybersecurity', issuer: 'Cisco Networking Academy', date: '2025–2026' },
+    { name: 'Introduction to Software Testing', issuer: 'Simplilearn SkillUp', date: 'Mar 2026' },
+    { name: 'British Airways Data Science Job Simulation', issuer: 'Forage', date: 'Mar 2026' }
   ],
   education: {
-    degree: 'B.Tech in Computer Science and Information Technology',
+    degree: 'B.Tech in Computer Science and Engineering',
     institution: 'Dronacharya Group of Institutions, Greater Noida',
     university: 'AKTU',
     dates: '2023 — 2027',
-    coursework: 'Data structures and algorithms · DBMS · Object-oriented programming fundamentals'
+    coursework: 'Data Structures & Algorithms · Object-Oriented Programming · DBMS · Operating Systems · Computer Networks'
   },
   sourceNotes: {
-    resume: 'The latest supplied resume PDF was not present in the workspace at implementation time. The repository’s existing PDF is retained only as a temporary fallback and is not relinked under the new filename.',
+    resume: 'A current résumé was supplied in October 2026, but transferring the uploaded binary to the repository is still pending; the old linked PDF remains unchanged.',
     linkedin: 'The public profile redirected to LinkedIn’s authwall in the audit environment and could not be independently verified.'
   }
 };

@@ -75,3 +75,13 @@ All five featured projects link to `/case-study.html?project=...`, a multi-page 
 - Initial run failed in `npm test` because a newly introduced static assertion used an invalid regex `/esc\\(/`. This was a test syntax bug, not evidence of a website runtime bug.
 - Replaced regex patterns with precise `.includes()` assertions and checked the test syntax.
 - Runner `npm ci` reported 30 npm dependency advisories (20 moderate, 10 high). These are audit summary warnings, not investigated root causes; investigate separately without bypassing checks or running forced upgrades.
+
+## Authoritative resume refresh: 2026-10-14
+
+Uploaded résumé: Kumar_Sambhav_Zenskar_SDE1_Resume(1).pdf. The original résumé is unchanged and identifies **B.Tech Computer Science and Engineering**, expected May 2027. Its college-only Python/Java/C/C++ background is deliberately omitted from marketed portfolio skills at the user's request.
+
+**Added:** research delegation credit for `Smart Sensing Air Stations with Advanced WSN and IoT Security` at EASEC-19 in Kuala Lumpur, July 2026; the published conference schedule is at https://www.ukm.my/easec19/. DGI/student public posts confirm the project title was presented by a research participant. The user’s documented role is **technical research delegation member** (literature review, diagrams, documentation, WSN security/connectivity). Paper author list, DOI, individual presentation, and indexed publication are **not verified** and are not claimed.
+
+**Also added:** Four resume-listed training/certification entries; source-backed ScopeLedger Cloudflare Workers/D1 details; NeuroInsight experimental ResNet50/Grad-CAM. No fabricated badge links. Phone remains absent from HTML.
+
+**Remaining PDF asset blocker:** The supplied binary PDF is mounted in the session but the connected GitHub file writer cannot ingest the local container path. The old résumé at public/assets/Kumar-Sambhav-Software-Developer-Resume.pdf is not replaced by this code commit. Original uploaded PDF SHA-256: 464f0489e7d3484d6583d68abd0a784cac562fa364751f207cdfc4a6e63c8b4b.
