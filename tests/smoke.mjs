@@ -30,6 +30,8 @@ if ((await page.locator('.archive-row:visible').count()) !== 2) {
 }
 await page.locator('[data-archive-filter="all"]').click();
 if ((await page.locator('.archive-row:visible').count()) !== 8) throw new Error('Archive reset failed');
+if ((await page.locator('img[src*="raw.githubusercontent.com"]').count()) !== 0) throw new Error('External hotlinked image remains');
+if ((await page.locator('.project-proof-link').count()) !== 1) throw new Error('Authentic source preview link missing');
 if ((await page.locator('.project .system-map').count()) !== 5) throw new Error('Featured schematic missing');
 await page.locator('#scan-button').click();
 await page.waitForTimeout(650);

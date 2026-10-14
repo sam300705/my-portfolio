@@ -16,6 +16,10 @@ if (!project) {
   el.innerHTML = '<div class="case-missing"><p class="section-kicker">Project not found</p><h1>No case study for that link.</h1><p>The requested engineering story is not available here.</p><a class="button primary" href="/#work">Return to work ↗</a></div>';
 } else {
   document.title = `${project.title} — Case Study | Kumar Sambhav`;
+  const canonical = document.createElement('link');
+  canonical.rel = 'canonical';
+  canonical.href = `https://sambhavcodes.in/case-study.html?project=${encodeURIComponent(project.id)}`;
+  document.head.append(canonical);
   const description = document.querySelector('meta[name="description"]');
   description.setAttribute('content', `${project.title}: engineering context, architecture, repository evidence and limitations.`);
   el.innerHTML = `
@@ -24,7 +28,7 @@ if (!project) {
   <h1 id="case-title">${esc(project.title)}<span class="case-dot">.</span></h1>
   <p class="case-subtitle">${esc(project.subtitle)}</p></div>
   <div><p class="case-lead">${esc(project.description)}</p><div class="project-tags">${project.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div></div></header>
-  ${project.evidenceImage ? `<figure class="case-authentic-media"><img src="${esc(project.evidenceImage)}" loading="lazy" decoding="async" width="1040" height="640" alt="${esc(project.evidenceImageAlt)}"><figcaption>${esc(project.evidenceImageCaption)} · <a href="${esc(project.repo)}" target="_blank" rel="noopener noreferrer">Original project repository ↗</a></figcaption></figure>` : ''}
+  ${project.evidenceImage ? `<div class="case-source-media"><span class="mono">AUTHENTIC REPOSITORY MEDIA</span><a href="${esc(project.evidenceImage)}" rel="noopener noreferrer" target="_blank">View ImgFlow source preview ↗</a></div>` : ''}
   <div class="case-schematic">${systemMapMarkup(project.id, true)}</div>
   <div class="case-layout">
    <aside class="case-toc"><p class="mono">ON THIS PAGE</p><nav aria-label="Case study contents"><a href="#context">01 / Context</a><a href="#architecture">02 / Architecture</a><a href="#evidence">03 / Engineering evidence</a><a href="#limitations">04 / Limitations</a></nav></aside>

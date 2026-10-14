@@ -113,3 +113,11 @@ Uploaded résumé: Kumar_Sambhav_Zenskar_SDE1_Resume(1).pdf. The original résum
 - ImgFlow now displays its **authentic** project-repository `assets/preview.png` rather than a stock or generated application screenshot. The asset is served directly from `raw.githubusercontent.com/sam300705/imgflow/master/assets/preview.png`; it depends on GitHub availability and does not imply portfolio ownership of the image binary.
 - A scoped npm audit now runs in CI: high/critical alerts in runtime deps fail the job; build-tool/dev warnings remain explicitly reported and require a separate remediation decision. This distinction matters because the delivered portfolio is static.
 - Build/test summary and audit details are in GitHub Actions logs; do not call it clean until the new audit step completes.
+
+## Browser screenshot review corrections
+
+- Examined actual CI screenshots of the 1440px desktop, 390px mobile and AgentShield case-study pages (run 38591560071).
+- Desktop hero was vertically bottom-aligned with a taller portrait, pushing the headline below the first viewport; set desktop hero columns to top alignment with reduced upper padding.
+- The externally hosted ImgFlow PNG appeared as a blank image card in screenshot review. Removed the broken remote `img` and replaced it with a compact, explicit verified source-preview link. No imitation screenshot is presented.
+- Added per-case canonical URLs and included all five distinct case-study routes in the site sitemap.
+- Subsequent CI screenshot review is required to confirm layout before merge.

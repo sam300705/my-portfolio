@@ -5,10 +5,10 @@ import { systemMapMarkup } from './system-map.js';
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const external = (url) => url ? `<a class="text-link" href="${url}" target="_blank" rel="noopener noreferrer">Open repository ↗</a>` : '';
-const evidenceImage = (project) => project.evidenceImage ? `<figure class="project-media">
-  <img loading="lazy" decoding="async" src="${project.evidenceImage}" alt="${project.evidenceImageAlt}" width="1040" height="640"/>
-  <figcaption>${project.evidenceImageCaption} · <a href="${project.repo}" target="_blank" rel="noopener noreferrer">Verify source ↗</a></figcaption>
-</figure>` : '';
+const evidenceImage = (project) => project.evidenceImage ? `<a class="project-proof-link" href="${project.evidenceImage}" target="_blank" rel="noopener noreferrer" aria-label="Open original ImgFlow project media in GitHub">
+  <span class="mono">VERIFIABLE PROJECT MEDIA / SOURCE REPOSITORY</span>
+  <strong>Inspect original ImgFlow preview ↗</strong>
+</a>` : '';
 const demoLink = (url) => url ? `<a class="text-link" href="${url}" target="_blank" rel="noopener noreferrer">Verified public link ↗</a>` : '';
 
 function projectMarkup(project) {

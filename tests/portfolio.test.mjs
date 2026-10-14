@@ -124,3 +124,14 @@ test('project archive exposes accessible filters for all eight projects', () => 
   assert.ok(app.includes('entry.hidden = !show'));
   for(const group of ['product','ai','systems','research']) assert.ok(data.includes("family: '"+group+"'"));
 });
+
+test('hero first-viewport hierarchy, project media and case-study SEO remain source-grounded', () => {
+  const caseScript = fs.readFileSync(path.join(root,'src/case-study.js'),'utf8');
+  const siteMap = fs.readFileSync(path.join(root,'public/sitemap.xml'),'utf8');
+  assert.ok(css.includes('align-items: start; gap: clamp(3rem,6vw,7rem)'));
+  assert.ok(app.includes('Inspect original ImgFlow preview'));
+  assert.ok(!app.includes('class="project-media"'));
+  assert.ok(caseScript.includes("canonical.rel = 'canonical'"));
+  assert.ok(siteMap.includes('case-study.html?project=agentshield'));
+  assert.ok(siteMap.includes('case-study.html?project=scopeledger'));
+});
