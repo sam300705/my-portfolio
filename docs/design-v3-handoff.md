@@ -100,3 +100,10 @@ Uploaded résumé: Kumar_Sambhav_Zenskar_SDE1_Resume(1).pdf. The original résum
 - Root cause: calling `querySelector` via `$` and then invoking `.forEach()` on a single button node, which prevented archive filter handlers from being registered.
 - Fixed both selectors to `$$` (`querySelectorAll` array helper) and added static assertions guarding collection selection.
 - Follow-up run required against this corrected commit. No résumé, deployment, or production changes.
+
+## Final selector root cause
+
+- Debug run `5678d84`: AI filter unchanged and browser error `e.forEach is not a function`.
+- Earlier patch used JavaScript `String.replace` with `$$` in the replacement value; JS interpolated that token into one literal `$` before GitHub commit, so both source and corresponding test stayed wrong.
+- Corrective patch passes the replacement text via a **replacement callback**, preserving literal double-dollar `$$` for the array-returning `querySelectorAll` wrapper.
+- Read-back contract checks in this patch verify both selectors and both test expectations exactly.

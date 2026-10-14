@@ -119,8 +119,8 @@ test('project archive exposes accessible filters for all eight projects', () => 
   assert.ok(html.includes('Filter project archive'));
   assert.ok(html.includes('archive-result-count'));
   assert.ok(app.includes('setupArchiveFilters()'));
-  assert.ok(app.includes("const buttons = $('.archive-filter')"));
-  assert.ok(app.includes("const entries = $('.archive-row')"));
+  assert.ok(app.includes("const buttons = $$('.archive-filter')"));
+  assert.ok(app.includes("const entries = $$('.archive-row')"));
   assert.ok(app.includes('entry.hidden = !show'));
   for(const group of ['product','ai','systems','research']) assert.ok(data.includes("family: '"+group+"'"));
 });

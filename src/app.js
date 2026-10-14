@@ -55,8 +55,8 @@ function render() {
 }
 
 function setupArchiveFilters() {
-  const buttons = $('.archive-filter');
-  const entries = $('.archive-row');
+  const buttons = $$('.archive-filter');
+  const entries = $$('.archive-row');
   const status = $('#archive-result-count');
   buttons.forEach(button => button.addEventListener('click', () => {
     const active = button.dataset.archiveFilter;
