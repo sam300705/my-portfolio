@@ -1,12 +1,12 @@
 # Kumar Sambhav | Software Developer Portfolio
 
-A premium, evidence-driven portfolio for Kumar Sambhav, a 2027 B.Tech Computer Science and Information Technology candidate building secure, reliable JavaScript and TypeScript products.
+A premium, evidence-driven portfolio for Kumar Sambhav, a 2027 B.Tech Computer Science and Engineering candidate building secure, reliable JavaScript and TypeScript products.
 
 **Live production site:** [sambhavcodes.in](https://sambhavcodes.in)
 
 ## Portfolio purpose
 
-The site presents two flagship case studies—AgentShield and NeuroInsight AI—and keeps SecondYouth and ImgFlow as additional engineering work. Every displayed project claim is grounded in repository code, documentation, tests, or a verified public deployment. The site intentionally avoids unsupported usage, impact, clinical, security-guarantee, employment, and adoption claims.
+The site presents five featured engineering case studies—AgentShield, NeuroInsight AI, SecondYouth, ImgFlow and ScopeLedger—plus eight smaller project entries, a source-backed EASEC-19 research delegation section, and four résumé-listed training records. Every displayed project claim is grounded in repository code, documentation, tests, or a verified public deployment. The site intentionally avoids unsupported usage, impact, clinical, security-guarantee, employment, and adoption claims.
 
 ## Technology stack
 
@@ -49,7 +49,7 @@ The project includes deterministic Node tests for positioning, required sections
 
 The current site is a static custom-domain deployment at `sambhavcodes.in`. This branch does not deploy or alter the production domain. Review the branch locally or through a pull-request preview, confirm the custom domain remains attached to the default production branch, and merge only after owner approval. A rollback is a revert of the pull request or a restore of the previous `main` commit; the original implementation remains in Git history.
 
-The resume link currently points to `assets/Kumar-Sambhav-Software-Developer-Resume.pdf`, a clean-name fallback copied from the repository PDF because the specifically named latest supplied PDF was unavailable in the workspace. Replace that file with the authoritative latest resume before merging.
+The current résumé download uses an older fallback PDF in `public/assets/Kumar-Sambhav-Software-Developer-Resume.pdf`. A newer authoritative résumé was uploaded on 2026-10-14 but is not yet synced to the repository because the connected GitHub writer cannot read the binary from the upload path. Replace the PDF before merging; do not claim it has been updated.
 
 ## Accessibility and privacy
 
