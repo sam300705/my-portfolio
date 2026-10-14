@@ -71,8 +71,7 @@ export const portfolio = {
       demo: null,
       tags: ['Go', 'Linux', 'CLI'],
       status: 'Open source'
-    }
-    ,
+    },
     {
       id: 'scopeledger',
       number: '05',

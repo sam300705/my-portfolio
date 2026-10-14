@@ -59,3 +59,9 @@ test('Midnight Mineral v3 identity, featured ScopeLedger, and archive remain pre
   assert.match(app, /archiveMarkup/);
   assert.match(html, /id="copyright-year"/);
 });
+
+test('recruiter brief traps keyboard focus and restores the opener', () => {
+  assert.match(app, /event\.key !== 'Tab'/);
+  assert.match(app, /last\.focus\(\)/);
+  assert.match(app, /previousFocus/);
+});

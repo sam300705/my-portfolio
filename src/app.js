@@ -82,12 +82,37 @@ function setupPolicyDemo() {
 
 function setupBrief() {
   const panel = $('#brief-panel');
-  const open = () => { panel.classList.add('open'); panel.setAttribute('aria-hidden', 'false'); $('#brief-close').focus(); document.body.style.overflow = 'hidden'; };
-  const close = () => { panel.classList.remove('open'); panel.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; $('#brief-open').focus(); };
-  $('#brief-open').addEventListener('click', open);
-  $('#brief-close').addEventListener('click', close);
+  const closeButton = $('#brief-close');
+  const trigger = $('#brief-open');
+  let previousFocus = null;
+  const focusable = () => $$('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])', panel)
+    .filter((element) => element.getClientRects().length > 0);
+  const open = () => {
+    previousFocus = document.activeElement;
+    panel.classList.add('open');
+    panel.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    closeButton.focus();
+  };
+  const close = () => {
+    panel.classList.remove('open');
+    panel.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    (previousFocus?.isConnected ? previousFocus : trigger).focus();
+  };
+  trigger.addEventListener('click', open);
+  closeButton.addEventListener('click', close);
   panel.addEventListener('click', (event) => { if (event.target === panel) close(); });
-  document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && panel.classList.contains('open')) close(); });
+  document.addEventListener('keydown', (event) => {
+    if (!panel.classList.contains('open')) return;
+    if (event.key === 'Escape') { event.preventDefault(); close(); return; }
+    if (event.key !== 'Tab') return;
+    const items = focusable();
+    if (!items.length) { event.preventDefault(); closeButton.focus(); return; }
+    const first = items[0], last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  });
 }
 
 function setupCopyEmail() {

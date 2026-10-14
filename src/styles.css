@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
 :root {
   --paper: #f4f1e9;
   --paper-2: #ebe7dc;
@@ -163,7 +164,7 @@ footer { padding: 2rem 0; color: var(--muted); font-size: .8rem; }
 
 
 /* V3 / MIDNIGHT MINERAL — an editorial interface for engineering work */
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+
 :root {
   --canvas: #0b1719; --surface: #17272a; --paper: #0b1719; --paper-2: #17272a;
   --ink: #f2f0e9; --muted: #a5b8b2; --line: #344346;
