@@ -69,3 +69,9 @@ Stack is **PR #1 (V2) → PR #2 (V3)**; PR #2 targets `feature/premium-portfolio
 ## Dedicated case-study routes
 
 All five featured projects link to `/case-study.html?project=...`, a multi-page Vite route using verified source material in the existing data model. The case study covers context, architecture, implementation evidence, limitations and secure repository links; unknown IDs have a safe fallback. Browser smoke tests cover AgentShield and the unknown-project case. Screenshots and extensive personal decision diaries are not invented; source assets and author narratives are remaining enhancements.
+
+## Case-study CI failure #2 — correction
+
+- Initial run failed in `npm test` because a newly introduced static assertion used an invalid regex `/esc\\(/`. This was a test syntax bug, not evidence of a website runtime bug.
+- Replaced regex patterns with precise `.includes()` assertions and checked the test syntax.
+- Runner `npm ci` reported 30 npm dependency advisories (20 moderate, 10 high). These are audit summary warnings, not investigated root causes; investigate separately without bypassing checks or running forced upgrades.
