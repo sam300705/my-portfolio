@@ -59,3 +59,9 @@ Stack is **PR #1 (V2) → PR #2 (V3)**; PR #2 targets `feature/premium-portfolio
 - Root cause was an incomplete action SHA, **not** a code/test failure.
 - Correction: pin the full verified action hash `11bd71901bbe5b1630ceea73d27597364c9af683`, exactly as GitHub's runner log requested.
 - Follow-up: verify a new workflow run on the corrected commit and record its actual conclusion.
+
+### Final narrow-viewport and keyboard hardening
+
+- Automated accessibility run now also inspects 320px.
+- Browser interaction tests check recruiter dialog initial focus, Shift+Tab wrap, Tab wrap, Escape close, and trigger focus restoration.
+- Do not mark these as passed until the CI run against this exact new commit succeeds.

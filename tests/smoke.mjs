@@ -15,8 +15,14 @@ if (!(await page.locator('#scan-result').textContent()).includes('REQUIRE_APPROV
 await page.locator('#menu-toggle').click();
 await page.locator('#brief-open').click();
 if (await page.locator('#brief-panel').getAttribute('aria-hidden') !== 'false') throw new Error('Recruiter Brief did not open');
+if (await page.locator('#brief-close').evaluate(node => document.activeElement !== node)) throw new Error('Focus did not move into Recruiter Brief');
+await page.keyboard.press('Shift+Tab');
+if (!(await page.locator('#brief-panel').evaluate(node => node.contains(document.activeElement)))) throw new Error('Shift+Tab escaped Recruiter Brief');
+await page.keyboard.press('Tab');
+if (await page.locator('#brief-close').evaluate(node => document.activeElement !== node)) throw new Error('Tab did not wrap to first dialog control');
 await page.keyboard.press('Escape');
 if (await page.locator('#brief-panel').getAttribute('aria-hidden') !== 'true') throw new Error('Recruiter Brief did not close with Escape');
+if (await page.locator('#brief-open').evaluate(node => document.activeElement !== node)) throw new Error('Focus did not return to recruiter brief trigger');
 const resume = await page.request.get(`${baseURL}/assets/Kumar-Sambhav-Software-Developer-Resume.pdf`);
 if (!resume.ok() || (resume.headers()['content-type'] || '').includes('html')) throw new Error('Resume asset is unavailable');
 if (consoleErrors.length) throw new Error(`Console errors: ${consoleErrors.join('; ')}`);
