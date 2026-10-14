@@ -15,7 +15,19 @@ if ((await page.locator('#training-list li').count()) !== 4) throw new Error('Tr
 if ((await page.locator('#skills').textContent()).includes('Python')) throw new Error('Academic Python displayed in skills');
 if ((await page.locator('.archive-row').count()) !== 8) throw new Error('Archive project count changed');
 await page.locator('[data-archive-filter="ai"]').click();
-if ((await page.locator('.archive-row:visible').count()) !== 2) throw new Error('AI archive filter failed');
+if ((await page.locator('.archive-row:visible').count()) !== 2) {
+  const debug = await page.evaluate(() => ({
+    pressed: document.querySelector('[data-archive-filter="ai"]')?.getAttribute('aria-pressed'),
+    status: document.querySelector('#archive-result-count')?.textContent,
+    entries: [...document.querySelectorAll('.archive-row')].map(node => ({
+      family: node.dataset.archiveFamily,
+      hidden: node.hidden,
+      display: getComputedStyle(node).display,
+      visible: node.getBoundingClientRect().width > 0
+    }))
+  }));
+  throw new Error('AI archive filter failed: ' + JSON.stringify({ debug, consoleErrors }));
+}
 await page.locator('[data-archive-filter="all"]').click();
 if ((await page.locator('.archive-row:visible').count()) !== 8) throw new Error('Archive reset failed');
 if ((await page.locator('.project .system-map').count()) !== 5) throw new Error('Featured schematic missing');
