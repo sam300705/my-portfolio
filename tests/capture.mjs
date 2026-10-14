@@ -12,5 +12,11 @@ for (const [name, viewport] of [['desktop', { width: 1440, height: 900 }], ['mob
   await page.screenshot({ path: `docs/screenshots/${name}-recruiter-brief.png`, fullPage: false });
   await page.close();
 }
+for (const [name, viewport] of [['case-desktop',{width:1440,height:900}],['case-mobile',{width:390,height:844}]]) {
+  const page = await browser.newPage({ viewport, reducedMotion: 'reduce' });
+  await page.goto(`${baseURL}/case-study.html?project=agentshield`, { waitUntil: 'networkidle' });
+  await page.screenshot({ path: `docs/screenshots/${name}.png`, fullPage: true });
+  await page.close();
+}
 await browser.close();
 console.log('Captured desktop and mobile screenshots');
