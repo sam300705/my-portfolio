@@ -72,11 +72,39 @@ export const portfolio = {
       tags: ['Go', 'Linux', 'CLI'],
       status: 'Open source'
     }
+    ,
+    {
+      id: 'scopeledger',
+      number: '05',
+      eyebrow: 'Flagship · B2B workflow pilot',
+      title: 'ScopeLedger',
+      subtitle: 'Evidence-led change control for service teams',
+      description: 'A working pilot for fixed-scope service firms: capture the original agreement, calculate the cost of extra work, and retain the decision trail.',
+      problem: 'Scope changes become difficult to price or defend when approvals, dates, and original agreements live across disconnected messages.',
+      architecture: 'Workspace-scoped authorization · role-aware workflows · server-priced change requests · version checks · history and export',
+      evidence: ['Company workspace isolation on API operations with owner, editor, reviewer and viewer roles', 'Server-calculated change prices in integer minor units and lifecycle transitions with version checks', 'Approval evidence, atomic activity/history records, searchable views, and guarded CSV export'],
+      boundaries: 'A working internal B2B pilot, not a general public SaaS or certified billing platform. Hosting access limits the audience.',
+      repo: 'https://github.com/sam300705/scopeledger',
+      demo: null,
+      tags: ['B2B', 'Authorization', 'Audit history', 'Workflow'],
+      status: 'Internal pilot'
+    },
+  ],
+  archive: [
+    { title: 'EstateFlow', category: 'Product engineering', summary: 'Demo-first real-estate CRM with lead tracking, pipeline filters, and a PostgreSQL-ready schema.', status: 'Functional demo · persistence planned', repo: 'https://github.com/sam300705/estateflow', stack: 'Next.js / TypeScript' },
+    { title: 'AdmissionOS', category: 'Product engineering', summary: 'Demo-first admissions CRM for enquiries, counselling, course interests, and follow-ups.', status: 'Functional demo · persistence planned', repo: 'https://github.com/sam300705/admissionos', stack: 'Next.js / TypeScript' },
+    { title: 'NewsOS', category: 'Product experiment', summary: 'A news-oriented application whose development work remains on a feature branch.', status: 'Development branch', repo: 'https://github.com/sam300705/newsos', stack: 'Application prototype' },
+    { title: 'JobRadar AI', category: 'Applied AI', summary: 'Job-discovery and application-workflow experiment; inspect the repository for current capabilities.', status: 'Experimental', repo: 'https://github.com/sam300705/JobRadar-AI', stack: 'AI / workflow' },
+    { title: 'Interactive Wall Calendar', category: 'Interface experiment', summary: 'Calendar-interface exploration built as an independent prototype.', status: 'Prototype', repo: 'https://github.com/sam300705/interactive-wall-calendar', stack: 'Web interface' },
+    { title: 'MRO Equipment Health Monitor', category: 'Desktop tooling', summary: 'WinForms sensor-data viewer with thresholds, visual alerts, charts, and PDF reporting.', status: 'Desktop demo', repo: 'https://github.com/sam300705/mro-equipment-health-monitor', stack: 'C# / .NET' },
+    { title: 'Predictive RUL Estimation', category: 'ML research', summary: 'NASA CMAPSS FD001 engine remaining-useful-life experiment using feature engineering and a Random Forest model.', status: 'Research notebook', repo: 'https://github.com/sam300705/Predictive-RUL-Estimation', stack: 'Python / ML' },
+    { title: 'Technical Strategy Copilot', category: 'AI exploration', summary: 'An early technical-planning copilot idea with an initialized repository.', status: 'Empty repository · concept only', repo: 'https://github.com/sam300705/technical-strategy-copilot', stack: 'Concept' }
   ],
   skills: [
-    { group: 'Build', items: ['JavaScript', 'TypeScript', 'React.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Vite'] },
-    { group: 'Ship', items: ['Node.js', 'Express.js', 'REST APIs', 'PostgreSQL', 'SQL'] },
-    { group: 'Work with others', items: ['Git', 'GitHub'] }
+    { group: 'Secure systems', items: ['TypeScript', 'Node.js', 'Express.js', 'REST APIs', 'PostgreSQL', 'SQL'] },
+    { group: 'Applied AI', items: ['Python', 'ML research', 'Model evaluation', 'Explainability'] },
+    { group: 'Product engineering', items: ['JavaScript', 'React.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Vite'] },
+    { group: 'Developer workflow', items: ['Git', 'GitHub', 'Go', 'CLI tooling'] }
   ],
   education: {
     degree: 'B.Tech in Computer Science and Information Technology',

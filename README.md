@@ -60,3 +60,16 @@ The site uses semantic landmarks, a skip link, visible focus states, keyboard-ac
 - [`docs/content-audit.md`](docs/content-audit.md) — evidence and content decisions.
 - [`docs/linkedin-alignment.md`](docs/linkedin-alignment.md) — proposed LinkedIn positioning and known inconsistencies.
 - [`docs/final-verification-report.md`](docs/final-verification-report.md) — branch verification results, screenshots, and owner gates.
+
+## V3 design iteration — Midnight Mineral (October 2026)
+
+The `design/midnight-mineral-v3` branch builds on the existing V2 pull request, not on the outdated production `main`.
+
+- Adopts deep midnight-pine, sage, warm porcelain, and limited bronze editorial accents.
+- Retains the real portrait, evidence-led flagship descriptions, deterministic Policy Check, recruiter brief, résumé fallback, and existing interactions.
+- Adds ScopeLedger as a fifth repository-grounded featured build.
+- Adds eight additional archived projects with explicit maturity/status labels; the Technical Strategy Copilot repo is currently empty.
+- Adds expandable architecture/problem context for projects, restrained rows, refined responsive typography, and an inverted contact area.
+- Does not replace the authoritative résumé, modify LinkedIn, merge, or deploy.
+
+Review `docs/design-v3-handoff.md` before merging. Validate from the final commit with npm tests, build, browser accessibility and responsive checks.

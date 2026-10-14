@@ -47,3 +47,15 @@ test('external links use safe new-tab attributes', () => {
   const safeLinks = html.match(/rel="noopener noreferrer"/g) ?? [];
   assert.equal(externalLinks.length, safeLinks.length);
 });
+
+test('Midnight Mineral v3 identity, featured ScopeLedger, and archive remain present', () => {
+  assert.match(css, /#0b1719/i);
+  assert.match(css, /#b6dfc5/i);
+  assert.match(html, /Software<br><span>worth<\/span>/);
+  assert.match(html, /id="archive-section"/);
+  assert.match(data, /ScopeLedger/);
+  assert.match(data, /technical-strategy-copilot/);
+  assert.match(data, /Empty repository · concept only/);
+  assert.match(app, /archiveMarkup/);
+  assert.match(html, /id="copyright-year"/);
+});

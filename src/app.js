@@ -16,12 +16,17 @@ function projectMarkup(project) {
     </div>
     <div class="project-body">
       <p>${project.description}</p>
+      ${project.problem ? `<details class="case-study"><summary>Engineering context <span aria-hidden="true">↗</span></summary><div class="case-study-content"><h4>The problem</h4><p>${project.problem}</p><h4>Architecture / decisions</h4><p>${project.architecture}</p></div></details>` : ''}
       <div class="project-tags">${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}</div>
       <div class="project-evidence">${project.evidence.map((item, index) => `<div class="evidence"><strong>Evidence ${String(index + 1).padStart(2, '0')}</strong>${item}</div>`).join('')}</div>
       <p class="boundary"><strong>Boundary:</strong> ${project.boundaries}</p>
       <div class="project-links">${external(project.repo)} ${demoLink(project.demo)}</div>
     </div>
   </article>`;
+}
+
+function archiveMarkup(project, index) {
+  return `<li class="archive-row"><a href="${project.repo}" target="_blank" rel="noopener noreferrer" aria-label="View ${project.title} repository"><span class="archive-number mono">${String(index + 6).padStart(2, '0')}</span><span class="archive-main"><strong>${project.title}</strong><span>${project.summary}</span></span><span class="archive-side"><small>${project.category}</small><span>${project.status}</span><em>${project.stack}</em></span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>`;
 }
 
 function render() {
@@ -34,7 +39,9 @@ function render() {
   document.querySelectorAll('[data-person="linkedin"]').forEach((el) => { el.href = person.linkedin; });
   document.querySelectorAll('[data-person="resume"]').forEach((el) => { el.href = person.resume; });
   $('#portrait').src = person.portrait;
+  const year = $('#copyright-year'); if (year) year.textContent = String(new Date().getFullYear());
   $('#projects').innerHTML = portfolio.projects.map(projectMarkup).join('');
+  $('#archive').innerHTML = portfolio.archive.map(archiveMarkup).join('');
   $('#skills').innerHTML = portfolio.skills.map(({ group, items }) => `<div class="skill-group"><h3>${group}</h3><div class="skill-list">${items.map((item) => `<span class="skill">${item}</span>`).join('')}</div></div>`).join('');
   $('#education-copy').innerHTML = `<div class="journey-card"><span class="mono">${portfolio.education.dates}</span><h3>${portfolio.education.degree}</h3><p>${portfolio.education.institution}</p><p>${portfolio.education.university} · Expected May 2027</p><p>${portfolio.education.coursework}</p></div><div class="journey-card"><span class="mono">Foundation</span><h3>Building through self-directed work</h3><p>Project work is presented honestly as independent software development: from problem definition through implementation, validation, documentation, and deployment preparation.</p></div>`;
 }
