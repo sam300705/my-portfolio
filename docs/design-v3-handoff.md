@@ -93,3 +93,10 @@ Uploaded résumé: Kumar_Sambhav_Zenskar_SDE1_Resume(1).pdf. The original résum
 - Eight-project archive is filterable: Products (4), AI (2), Systems (1), Research (1); live count and pressed-state announcements added.
 - Playwright smoke and accessibility tests expanded to cover the new components and case-study route at the original six screen widths.
 - No edits to downloadable résumé, no branch merge and no production deployment.
+
+## Archive filter CI correction
+
+- First workflow run for `b32fdab` failed its Playwright archive filter assertion.
+- Root cause: calling `querySelector` via `$` and then invoking `.forEach()` on a single button node, which prevented archive filter handlers from being registered.
+- Fixed both selectors to `$$` (`querySelectorAll` array helper) and added static assertions guarding collection selection.
+- Follow-up run required against this corrected commit. No résumé, deployment, or production changes.
