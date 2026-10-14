@@ -14,6 +14,10 @@ for (const width of [320, 360, 390, 768, 1024, 1440]) {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
   const axe = await new AxeBuilder({ page }).analyze();
   results.push({ width, overflow, violations: axe.violations.map(({ id, impact, description, nodes }) => ({ id, impact, description, nodes: nodes.map((node) => ({ html: node.html, target: node.target })) })), consoleErrors: errors });
+  await page.goto(baseURL + '/case-study.html?project=agentshield', { waitUntil: 'networkidle' });
+  const caseOverflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
+  const caseAxe = await new AxeBuilder({ page }).analyze();
+  results.push({ width, route: 'AgentShield case study', overflow: caseOverflow, violations: caseAxe.violations.map(({id,impact,description,nodes})=>({id,impact,description,nodes:nodes.map(n=>({html:n.html,target:n.target}))})), consoleErrors: errors });
   await context.close();
 }
 await browser.close();

@@ -13,6 +13,12 @@ if (!(await page.locator('#research-paper-title').textContent()).includes('Smart
 if ((await page.locator('#research-contributions li').count()) !== 3) throw new Error('Research contributions missing');
 if ((await page.locator('#training-list li').count()) !== 4) throw new Error('Training items missing');
 if ((await page.locator('#skills').textContent()).includes('Python')) throw new Error('Academic Python displayed in skills');
+if ((await page.locator('.archive-row').count()) !== 8) throw new Error('Archive project count changed');
+await page.locator('[data-archive-filter="ai"]').click();
+if ((await page.locator('.archive-row:visible').count()) !== 2) throw new Error('AI archive filter failed');
+await page.locator('[data-archive-filter="all"]').click();
+if ((await page.locator('.archive-row:visible').count()) !== 8) throw new Error('Archive reset failed');
+if ((await page.locator('.project .system-map').count()) !== 5) throw new Error('Featured schematic missing');
 await page.locator('#scan-button').click();
 await page.waitForTimeout(650);
 if (!(await page.locator('#scan-result').textContent()).includes('REQUIRE_APPROVAL')) throw new Error('Policy result missing');
@@ -29,6 +35,7 @@ if (await page.locator('#brief-panel').getAttribute('aria-hidden') !== 'true') t
 if (await page.locator('#brief-open').evaluate(node => document.activeElement !== node)) throw new Error('Focus did not return to recruiter brief trigger');
 await page.goto(`${baseURL}/case-study.html?project=agentshield`,{waitUntil:'networkidle'});
 if ((await page.locator('#case-title').textContent() || '').trim() !== 'AgentShield.') throw new Error('Case study title missing');
+if ((await page.locator('.system-map-expanded .system-map-node').count()) !== 4) throw new Error('Case study schematic missing');
 for(const id of ['context','architecture','evidence','limitations']) {
   if(await page.locator(`#${id}`).count() !== 1) throw new Error(`Missing case study section ${id}`);
 }

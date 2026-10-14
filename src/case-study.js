@@ -1,6 +1,7 @@
 import { portfolio } from './data.js';
 import './styles.css';
 import './case-study.css';
+import { systemMapMarkup } from './system-map.js';
 
 const el = document.querySelector('#case-root');
 const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
@@ -23,6 +24,7 @@ if (!project) {
   <h1 id="case-title">${esc(project.title)}<span class="case-dot">.</span></h1>
   <p class="case-subtitle">${esc(project.subtitle)}</p></div>
   <div><p class="case-lead">${esc(project.description)}</p><div class="project-tags">${project.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div></div></header>
+  <div class="case-schematic">${systemMapMarkup(project.id, true)}</div>
   <div class="case-layout">
    <aside class="case-toc"><p class="mono">ON THIS PAGE</p><nav aria-label="Case study contents"><a href="#context">01 / Context</a><a href="#architecture">02 / Architecture</a><a href="#evidence">03 / Engineering evidence</a><a href="#limitations">04 / Limitations</a></nav></aside>
    <div class="case-content">

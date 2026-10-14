@@ -85,3 +85,11 @@ Uploaded résumé: Kumar_Sambhav_Zenskar_SDE1_Resume(1).pdf. The original résum
 **Also added:** Four resume-listed training/certification entries; source-backed ScopeLedger Cloudflare Workers/D1 details; NeuroInsight experimental ResNet50/Grad-CAM. No fabricated badge links. Phone remains absent from HTML.
 
 **Remaining PDF asset blocker:** The supplied binary PDF is mounted in the session but the connected GitHub file writer cannot ingest the local container path. The old résumé at public/assets/Kumar-Sambhav-Software-Developer-Resume.pdf is not replaced by this code commit. Original uploaded PDF SHA-256: 464f0489e7d3484d6583d68abd0a784cac562fa364751f207cdfc4a6e63c8b4b.
+
+## Portfolio visual system refinement (2026-10-14)
+
+- Five ground-truth, four-stage system diagrams added to homepage and dedicated case-study pages, as accessible semantic HTML.
+- Diagrams are explicitly marked conceptual: no invented screenshots, customers, monitoring data or product outcomes.
+- Eight-project archive is filterable: Products (4), AI (2), Systems (1), Research (1); live count and pressed-state announcements added.
+- Playwright smoke and accessibility tests expanded to cover the new components and case-study route at the original six screen widths.
+- No edits to downloadable résumé, no branch merge and no production deployment.

@@ -1,5 +1,6 @@
 import { portfolio, policyDemo } from './data.js';
 import './styles.css';
+import { systemMapMarkup } from './system-map.js';
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -16,6 +17,7 @@ function projectMarkup(project) {
     </div>
     <div class="project-body">
       <p>${project.description}</p>
+      ${systemMapMarkup(project.id)}
       ${project.problem ? `<details class="case-study"><summary>Engineering context <span aria-hidden="true">↗</span></summary><div class="case-study-content"><h4>The problem</h4><p>${project.problem}</p><h4>Architecture / decisions</h4><p>${project.architecture}</p></div></details>` : ''}
       <div class="project-tags">${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}</div>
       <div class="project-evidence">${project.evidence.map((item, index) => `<div class="evidence"><strong>Evidence ${String(index + 1).padStart(2, '0')}</strong>${item}</div>`).join('')}</div>
@@ -26,7 +28,7 @@ function projectMarkup(project) {
 }
 
 function archiveMarkup(project, index) {
-  return `<li class="archive-row"><a href="${project.repo}" target="_blank" rel="noopener noreferrer" aria-label="View ${project.title} repository"><span class="archive-number mono">${String(index + 6).padStart(2, '0')}</span><span class="archive-main"><strong>${project.title}</strong><span>${project.summary}</span></span><span class="archive-side"><small>${project.category}</small><span>${project.status}</span><em>${project.stack}</em></span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>`;
+  return `<li class="archive-row" data-archive-family="${project.family}"><a href="${project.repo}" target="_blank" rel="noopener noreferrer" aria-label="View ${project.title} repository"><span class="archive-number mono">${String(index + 6).padStart(2, '0')}</span><span class="archive-main"><strong>${project.title}</strong><span>${project.summary}</span></span><span class="archive-side"><small>${project.category}</small><span>${project.status}</span><em>${project.stack}</em></span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>`;
 }
 
 function render() {
@@ -50,6 +52,23 @@ function render() {
   $('#research-contributions').innerHTML = portfolio.research.contributions.map((item, i) => `<li><span class="mono">${String(i + 1).padStart(2, '0')}</span><p>${item}</p></li>`).join('');
   $('#training-list').innerHTML = portfolio.training.map((item, i) => `<li class="training-row"><span class="mono">${String(i + 1).padStart(2, '0')}</span><strong>${item.name}${item.evidenceUrl ? ` <a class="training-evidence" href="${item.evidenceUrl}" target="_blank" rel="noopener noreferrer" aria-label="Open original certificate verification for ${item.name}">↗ Verify</a>` : ''}</strong><span>${item.issuer}</span><time>${item.date}</time></li>`).join('');
   $('#education-copy').innerHTML = `<div class="journey-card"><span class="mono">${portfolio.education.dates}</span><h3>${portfolio.education.degree}</h3><p>${portfolio.education.institution}</p><p>${portfolio.education.university} · Expected May 2027</p><p>${portfolio.education.coursework}</p></div><div class="journey-card"><span class="mono">Foundation</span><h3>Building through self-directed work</h3><p>Project work is presented honestly as independent software development: from problem definition through implementation, validation, documentation, and deployment preparation.</p></div>`;
+}
+
+function setupArchiveFilters() {
+  const buttons = $('.archive-filter');
+  const entries = $('.archive-row');
+  const status = $('#archive-result-count');
+  buttons.forEach(button => button.addEventListener('click', () => {
+    const active = button.dataset.archiveFilter;
+    buttons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+    let visible = 0;
+    entries.forEach(entry => {
+      const show = active === 'all' || entry.dataset.archiveFamily === active;
+      entry.hidden = !show;
+      if (show) visible += 1;
+    });
+    status.textContent = 'Showing ' + visible + ' of ' + entries.length + ' projects';
+  }));
 }
 
 function setupNavigation() {
@@ -136,6 +155,7 @@ function setupCopyEmail() {
 
 render();
 setupNavigation();
+setupArchiveFilters();
 setupPolicyDemo();
 setupBrief();
 setupCopyEmail();

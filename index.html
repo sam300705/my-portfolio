@@ -48,6 +48,13 @@
     <section id="work" class="section" aria-labelledby="work-title"><div class="container"><div class="section-head"><p class="section-kicker">01 / Featured engineering</p><div><h2 id="work-title">Selected work.<br><em>Built with intention.</em></h2><p class="section-intro">Five projects, different kinds of problems. Real implementation details, clear decisions, and honest technical boundaries.</p></div></div><div id="projects"></div></div></section>
     <section id="archive-section" class="section archive-section" aria-labelledby="archive-title"><div class="container">
       <div class="section-head"><p class="section-kicker">02 / Complete archive</p><div><h2 id="archive-title">The work<br><em>continues.</em></h2><p class="section-intro">Experiments, functional demos, research notebooks, and early ideas — labeled for what they currently are, not what they might become.</p></div></div>
+      <div class="archive-controls" role="group" aria-label="Filter project archive">
+        <button class="archive-filter" data-archive-filter="all" type="button" aria-pressed="true">All <span>08</span></button>
+        <button class="archive-filter" data-archive-filter="product" type="button" aria-pressed="false">Products <span>04</span></button>
+        <button class="archive-filter" data-archive-filter="ai" type="button" aria-pressed="false">AI <span>02</span></button>
+        <button class="archive-filter" data-archive-filter="systems" type="button" aria-pressed="false">Systems <span>01</span></button>
+        <button class="archive-filter" data-archive-filter="research" type="button" aria-pressed="false">Research <span>01</span></button>
+      </div><p class="visually-hidden" id="archive-result-count" aria-live="polite" role="status">Showing 8 of 8 projects</p>
       <ol class="archive-list" id="archive" aria-label="Additional projects"></ol>
     </div></section>
     <section id="policy-check" class="section" aria-labelledby="policy-title"><div class="container"><div class="demo"><div><p class="section-kicker demo-label">Field note / AgentShield</p><h3 id="policy-title">An explainable<br>decision in action.</h3><p class="demo-copy">A small deterministic walkthrough inspired by AgentShield’s policy engine. It is a portfolio demonstration, not a live security scan.</p><p class="demo-copy">Replay the decision to see how a rule can turn a workflow change into an explainable review state.</p></div><div class="code-panel"><div class="code-top"><span>agent-config.yml</span><span>local demo</span></div><pre aria-label="Fictional code change"><code>workflow:

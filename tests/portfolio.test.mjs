@@ -106,3 +106,19 @@ test('only certificate URLs supplied in the original resume are linked safely', 
   assert.ok(app.includes('item.evidenceUrl'));
   assert.ok(app.includes('rel="noopener noreferrer"'));
 });
+
+test('all featured projects have truthful, semantic architecture schematics', () => {
+  const maps = fs.readFileSync(path.join(root,'src/system-map.js'),'utf8');
+  assert.ok(maps.includes('Conceptual workflow'));
+  assert.ok(maps.includes('not a live system view'));
+  for(const id of ['agentshield','neuroinsight','secondyouth','imgflow','scopeledger']) assert.ok(maps.includes(id));
+  assert.ok(app.includes('systemMapMarkup(project.id)'));
+  assert.ok(fs.readFileSync(path.join(root,'src/case-study.js'),'utf8').includes('systemMapMarkup(project.id, true)'));
+});
+test('project archive exposes accessible filters for all eight projects', () => {
+  assert.ok(html.includes('Filter project archive'));
+  assert.ok(html.includes('archive-result-count'));
+  assert.ok(app.includes('setupArchiveFilters()'));
+  assert.ok(app.includes('entry.hidden = !show'));
+  for(const group of ['product','ai','systems','research']) assert.ok(data.includes("family: '"+group+"'"));
+});
