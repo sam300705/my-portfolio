@@ -28,3 +28,5 @@
 @media(max-width:800px){.case-hero,.case-layout{grid-template-columns:1fr}.case-hero{padding:4rem 0}.case-hero h1{font-size:clamp(3.1rem,11vw,6rem)}.case-toc{position:static;padding:1.4rem 0;border-bottom:1px solid var(--line)}.case-toc nav{flex-direction:row;flex-wrap:wrap;gap:.9rem}.case-section{padding:4rem 0}.case-actions .button{width:100%}}
 
 .case-schematic{padding:0 0 clamp(3rem,6vw,6rem)}
+
+.case-authentic-media{margin:0 0 2.5rem}

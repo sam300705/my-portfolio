@@ -107,3 +107,9 @@ Uploaded résumé: Kumar_Sambhav_Zenskar_SDE1_Resume(1).pdf. The original résum
 - Earlier patch used JavaScript `String.replace` with `$$` in the replacement value; JS interpolated that token into one literal `$` before GitHub commit, so both source and corresponding test stayed wrong.
 - Corrective patch passes the replacement text via a **replacement callback**, preserving literal double-dollar `$$` for the array-returning `querySelectorAll` wrapper.
 - Read-back contract checks in this patch verify both selectors and both test expectations exactly.
+
+## Evidence-image and production dependency audit
+
+- ImgFlow now displays its **authentic** project-repository `assets/preview.png` rather than a stock or generated application screenshot. The asset is served directly from `raw.githubusercontent.com/sam300705/imgflow/master/assets/preview.png`; it depends on GitHub availability and does not imply portfolio ownership of the image binary.
+- A scoped npm audit now runs in CI: high/critical alerts in runtime deps fail the job; build-tool/dev warnings remain explicitly reported and require a separate remediation decision. This distinction matters because the delivered portfolio is static.
+- Build/test summary and audit details are in GitHub Actions logs; do not call it clean until the new audit step completes.

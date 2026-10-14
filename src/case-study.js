@@ -24,6 +24,7 @@ if (!project) {
   <h1 id="case-title">${esc(project.title)}<span class="case-dot">.</span></h1>
   <p class="case-subtitle">${esc(project.subtitle)}</p></div>
   <div><p class="case-lead">${esc(project.description)}</p><div class="project-tags">${project.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div></div></header>
+  ${project.evidenceImage ? `<figure class="case-authentic-media"><img src="${esc(project.evidenceImage)}" loading="lazy" decoding="async" width="1040" height="640" alt="${esc(project.evidenceImageAlt)}"><figcaption>${esc(project.evidenceImageCaption)} · <a href="${esc(project.repo)}" target="_blank" rel="noopener noreferrer">Original project repository ↗</a></figcaption></figure>` : ''}
   <div class="case-schematic">${systemMapMarkup(project.id, true)}</div>
   <div class="case-layout">
    <aside class="case-toc"><p class="mono">ON THIS PAGE</p><nav aria-label="Case study contents"><a href="#context">01 / Context</a><a href="#architecture">02 / Architecture</a><a href="#evidence">03 / Engineering evidence</a><a href="#limitations">04 / Limitations</a></nav></aside>

@@ -5,6 +5,10 @@ import { systemMapMarkup } from './system-map.js';
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const external = (url) => url ? `<a class="text-link" href="${url}" target="_blank" rel="noopener noreferrer">Open repository ↗</a>` : '';
+const evidenceImage = (project) => project.evidenceImage ? `<figure class="project-media">
+  <img loading="lazy" decoding="async" src="${project.evidenceImage}" alt="${project.evidenceImageAlt}" width="1040" height="640"/>
+  <figcaption>${project.evidenceImageCaption} · <a href="${project.repo}" target="_blank" rel="noopener noreferrer">Verify source ↗</a></figcaption>
+</figure>` : '';
 const demoLink = (url) => url ? `<a class="text-link" href="${url}" target="_blank" rel="noopener noreferrer">Verified public link ↗</a>` : '';
 
 function projectMarkup(project) {
@@ -17,6 +21,7 @@ function projectMarkup(project) {
     </div>
     <div class="project-body">
       <p>${project.description}</p>
+      ${evidenceImage(project)}
       ${systemMapMarkup(project.id)}
       ${project.problem ? `<details class="case-study"><summary>Engineering context <span aria-hidden="true">↗</span></summary><div class="case-study-content"><h4>The problem</h4><p>${project.problem}</p><h4>Architecture / decisions</h4><p>${project.architecture}</p></div></details>` : ''}
       <div class="project-tags">${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}</div>

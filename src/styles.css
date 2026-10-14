@@ -426,3 +426,9 @@ footer { padding: 2.3rem 0; border-top: 1px solid var(--line); background: var(-
 @media(max-width:1110px){.system-map-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.system-map-node:nth-child(2)::after{display:none}}
 @media(max-width:570px){.system-map figcaption{padding:.88rem}.system-map-steps{padding:.8rem;grid-template-columns:minmax(0,1fr)}.system-map-node:not(:last-child)::after{content:"↓";right:1rem;top:auto;bottom:-.48rem}.system-map-node:nth-child(2)::after{display:block;content:"↓"}.system-map-expanded .system-map-steps{padding:1rem}.system-map-expanded .system-map-node{min-height:unset}.archive-filter{font-size:.64rem;padding:.56rem .7rem}}
 @media(prefers-reduced-motion:reduce){.archive-filter{transition:none}}
+
+.project-media,.case-authentic-media{max-width:100%;overflow:hidden;background:#132326;border:1px solid #425e56;border-radius:2px;margin:2rem 0}
+.project-media img,.case-authentic-media img{display:block;width:100%;height:auto;object-fit:contain;background:#102023;color:#b6c9c0}
+.project-media figcaption,.case-authentic-media figcaption{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;padding:.75rem 1rem;border-top:1px solid #425e56;font:400 .61rem "DM Mono",monospace;color:var(--bronze);letter-spacing:.05em}
+.project-media figcaption a,.case-authentic-media figcaption a{color:var(--accent);text-decoration:none}
+.project-media figcaption a:hover,.case-authentic-media figcaption a:hover{text-decoration:underline;text-underline-offset:4px}

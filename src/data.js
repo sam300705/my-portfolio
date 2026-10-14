@@ -74,7 +74,10 @@ export const portfolio = {
       repo: 'https://github.com/sam300705/imgflow',
       demo: null,
       tags: ['Go', 'Linux', 'CLI'],
-      status: 'Open source'
+      status: 'Open source',
+      evidenceImage: 'https://raw.githubusercontent.com/sam300705/imgflow/master/assets/preview.png',
+      evidenceImageAlt: 'Actual ImgFlow terminal image-preview output from the public source repository',
+      evidenceImageCaption: 'PROJECT OUTPUT / AUTHENTIC REPOSITORY PREVIEW'
     },
     {
       id: 'scopeledger',

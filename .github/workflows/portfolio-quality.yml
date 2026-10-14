@@ -10,6 +10,8 @@ on:
       - 'case-study.html'
       - 'src/**'
       - 'tests/**'
+      - 'public/**'
+      - 'docs/**'
       - 'package*.json'
       - '.github/workflows/portfolio-quality.yml'
 
@@ -31,6 +33,11 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Scope npm dependency vulnerabilities (fail high-severity runtime findings)
+        run: |
+          npm audit --omit=dev --json > /tmp/portfolio-runtime-audit.json || true
+          npm audit --json > /tmp/portfolio-all-audit.json || true
+          node tests/audit-dependencies.mjs
       - name: Unit and content regression tests
         run: npm test
       - name: Build production bundle
