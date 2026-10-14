@@ -399,3 +399,6 @@ footer { padding: 2.3rem 0; border-top: 1px solid var(--line); background: var(-
 .training-row>span:not(.mono),.training-row time{color:var(--muted);font-size:.83rem}
 @media(max-width:800px){.research-feature{grid-template-columns:1fr;gap:2rem}.training-row{grid-template-columns:40px minmax(0,1fr);gap:.45rem .9rem}.training-row>span:not(.mono),.training-row time{grid-column:2}}
 @media(max-width:390px){.research-story h3{font-size:clamp(1.95rem,9vw,2.6rem)}.research-contributions li{grid-template-columns:36px minmax(0,1fr)}}
+
+.training-evidence { margin-left:.45rem; font-family:'DM Mono',monospace; color:var(--accent); font-size:.68rem; font-weight:500; text-decoration:underline; text-underline-offset:4px; white-space:nowrap; }
+.training-evidence:hover { color:var(--paper); }

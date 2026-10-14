@@ -60,3 +60,7 @@ Uploaded résumé: Kumar_Sambhav_Zenskar_SDE1_Resume(1).pdf. The original résum
 **Also added:** Four resume-listed training/certification entries; source-backed ScopeLedger Cloudflare Workers/D1 details; NeuroInsight experimental ResNet50/Grad-CAM. No fabricated badge links. Phone remains absent from HTML.
 
 **Remaining PDF asset blocker:** The supplied binary PDF is mounted in the session but the connected GitHub file writer cannot ingest the local container path. The old résumé at public/assets/Kumar-Sambhav-Software-Developer-Resume.pdf is not replaced by this code commit. Original uploaded PDF SHA-256: 464f0489e7d3484d6583d68abd0a784cac562fa364751f207cdfc4a6e63c8b4b.
+
+## Certificate evidence link
+
+The uploaded PDF contains an embedded hyperlink for **Claude Code in Action — Anthropic** pointing to `https://verify.skilljar.com/c/yy6sk6home9p`. The portfolio displays this supplied certificate-validation URL; external availability was not independently verified (fetch access denied). No verification URLs were invented for Cisco, Simplilearn, or Forage.

@@ -48,7 +48,7 @@ function render() {
   $('#research-caveat').textContent = portfolio.research.caveat;
   $('#research-conference').href = portfolio.research.conferenceUrl;
   $('#research-contributions').innerHTML = portfolio.research.contributions.map((item, i) => `<li><span class="mono">${String(i + 1).padStart(2, '0')}</span><p>${item}</p></li>`).join('');
-  $('#training-list').innerHTML = portfolio.training.map((item, i) => `<li class="training-row"><span class="mono">${String(i + 1).padStart(2, '0')}</span><strong>${item.name}</strong><span>${item.issuer}</span><time>${item.date}</time></li>`).join('');
+  $('#training-list').innerHTML = portfolio.training.map((item, i) => `<li class="training-row"><span class="mono">${String(i + 1).padStart(2, '0')}</span><strong>${item.name}${item.evidenceUrl ? ` <a class="training-evidence" href="${item.evidenceUrl}" target="_blank" rel="noopener noreferrer" aria-label="Open original certificate verification for ${item.name}">↗ Verify</a>` : ''}</strong><span>${item.issuer}</span><time>${item.date}</time></li>`).join('');
   $('#education-copy').innerHTML = `<div class="journey-card"><span class="mono">${portfolio.education.dates}</span><h3>${portfolio.education.degree}</h3><p>${portfolio.education.institution}</p><p>${portfolio.education.university} · Expected May 2027</p><p>${portfolio.education.coursework}</p></div><div class="journey-card"><span class="mono">Foundation</span><h3>Building through self-directed work</h3><p>Project work is presented honestly as independent software development: from problem definition through implementation, validation, documentation, and deployment preparation.</p></div>`;
 }
 

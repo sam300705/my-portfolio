@@ -100,3 +100,9 @@ test('EASEC-19 research role and certifications are represented without invented
   assert.ok(data.includes('Claude Code in Action'));
   assert.ok(app.includes('research-contributions'));
 });
+
+test('only certificate URLs supplied in the original resume are linked safely', () => {
+  assert.ok(data.includes('https://verify.skilljar.com/c/yy6sk6home9p'));
+  assert.ok(app.includes('item.evidenceUrl'));
+  assert.ok(app.includes('rel="noopener noreferrer"'));
+});

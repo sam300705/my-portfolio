@@ -125,7 +125,7 @@ export const portfolio = {
     conferenceUrl: 'https://www.ukm.my/easec19/'
   },
   training: [
-    { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Apr 2026' },
+    { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Apr 2026', evidenceUrl: 'https://verify.skilljar.com/c/yy6sk6home9p' },
     { name: 'OS Basics, Networking Basics & Cybersecurity', issuer: 'Cisco Networking Academy', date: '2025–2026' },
     { name: 'Introduction to Software Testing', issuer: 'Simplilearn SkillUp', date: 'Mar 2026' },
     { name: 'British Airways Data Science Job Simulation', issuer: 'Forage', date: 'Mar 2026' }
