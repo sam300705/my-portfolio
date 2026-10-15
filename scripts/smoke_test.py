@@ -64,7 +64,7 @@ def run(base):
             assert details.locator('.detail-body').is_visible()
             assert 'Static scanners' in details.inner_text()
             details.locator('summary').click()
-            assert not details.locator('.detail-body').is_visible()
+            details.locator('.detail-body').wait_for(state='hidden')
             archive = page.locator('.archive')
             archive.locator('summary').click()
             assert archive.locator('.archive-list a:visible').count() == 8
@@ -89,6 +89,45 @@ def run(base):
             assert not failed, failed
             print(f'PASS: {width}px layout, filters, disclosures, navigation, assets, no page errors')
             page.close()
+        # Interrupted transitions must settle correctly after rapid interaction.
+        page = browser.new_page(viewport={'width':390,'height':844})
+        errors = []
+        page.on('pageerror', lambda error: errors.append(str(error)))
+        page.goto(base, wait_until='networkidle')
+        summary = page.locator('#agentshield summary')
+        summary.scroll_into_view_if_needed()
+        page.evaluate("""() => {
+          const summary = document.querySelector('#agentshield summary');
+          summary.click(); summary.click(); summary.click();
+        }""")
+        page.wait_for_function("document.querySelector('#agentshield').querySelector('details').open && !document.querySelector('#agentshield .disclosure-panel').getAnimations().length")
+        assert page.locator('#agentshield .detail-body').is_visible()
+        page.evaluate("document.querySelector('#agentshield summary').click()")
+        page.emulate_media(reduced_motion='reduce')
+        page.locator('#agentshield .detail-body').wait_for(state='hidden')
+        assert page.locator('#agentshield .disclosure-panel').evaluate('(el) => el.style.overflow') == ''
+        # No custom motion should start after the preference changes mid-visit.
+        page.get_by_role('button',name='Web & product').click()
+        assert page.locator('.project-card:visible').count() == 2
+        assert page.locator('.projects-grid').evaluate('(el) => el.getAnimations({subtree:true}).length') == 0
+        toggle = page.get_by_role('button',name='Open navigation')
+        toggle.click()
+        assert page.locator('#nav-links').is_visible()
+        page.keyboard.press('Escape')
+        assert not page.locator('#nav-links').is_visible()
+        page.emulate_media(reduced_motion='no-preference')
+        page.evaluate("""() => {
+          const menu = document.querySelector('.menu-toggle');
+          menu.click(); menu.click(); menu.click();
+        }""")
+        page.wait_for_function("document.querySelector('.menu-toggle').getAttribute('aria-expanded') === 'true' && !document.querySelector('#nav-links').getAnimations().length")
+        assert page.locator('#nav-links').evaluate('(el) => !el.inert')
+        page.set_viewport_size({'width':1024,'height':900})
+        page.wait_for_function("!document.querySelector('#nav-links').classList.contains('is-open')")
+        assert page.get_by_role('navigation').get_by_role('link',name='Work',exact=True).is_visible()
+        assert not errors, errors
+        print('PASS: interrupted disclosures, rapid menu clicks, resize, and live reduced-motion changes')
+        page.close()
         # Clipboard success and permission-denied behavior.
         context = browser.new_context(permissions=['clipboard-read', 'clipboard-write'])
         page = context.new_page()
@@ -107,6 +146,7 @@ def run(base):
         page.goto(base, wait_until='networkidle')
         assert page.locator('html').evaluate('(el) => getComputedStyle(el).scrollBehavior') == 'auto'
         assert page.locator('.hero-copy').evaluate('(el) => getComputedStyle(el).animationName') == 'none'
+        assert page.locator('.hero-copy > h1').evaluate('(el) => getComputedStyle(el).animationName') == 'none'
         print('PASS: reduced-motion preference')
         page.close()
         page = browser.new_page(java_script_enabled=False, viewport={'width':390,'height':844})

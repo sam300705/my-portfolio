@@ -2813,3 +2813,87 @@ h2 {
     gap: 6px;
   }
 }
+/* A single motion rhythm for entrances, filters, and disclosures. */
+.disclosure-panel {
+  flex-basis: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.motion-disclosure[open] .detail-body,
+.motion-disclosure[open] .archive-list,
+.nav-links.is-open,
+.project-card.filter-managed {
+  animation: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy {
+    animation: none;
+  }
+  .hero-copy > * {
+    animation: hero-enter 650ms var(--ease) both;
+  }
+  .hero-copy > :nth-child(2) {
+    animation-delay: 70ms;
+  }
+  .hero-copy > :nth-child(3) {
+    animation-delay: 140ms;
+  }
+  .hero-copy > :nth-child(4) {
+    animation-delay: 200ms;
+  }
+  .hero-copy > :nth-child(5) {
+    animation-delay: 250ms;
+  }
+  .hero-profile {
+    animation-duration: 850ms;
+    animation-delay: 140ms;
+  }
+  .project-card.reveal-in .connector {
+    transform-origin: left;
+    animation: connection-enter 650ms 120ms var(--ease) both;
+  }
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes connection-enter {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .project-art > div {
+    transition: transform 650ms var(--ease);
+  }
+  .project-card:hover .project-art > div {
+    transform: scale(1.015);
+  }
+  .brand-mark {
+    transition:
+      background-color 200ms,
+      color 200ms;
+  }
+  .brand:hover .brand-mark {
+    background-color: var(--accent);
+  }
+  .back-top svg,
+  .contact-socials svg {
+    transition: transform 250ms var(--ease);
+  }
+  .back-top:hover svg {
+    transform: translateY(-3px);
+  }
+  .contact-socials a:hover svg {
+    transform: translate(2px, -2px);
+  }
+}

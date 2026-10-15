@@ -62,7 +62,9 @@ The site stays a static deployment: no framework runtime, package installation, 
 - Project notes and workbench use keyboard-accessible native disclosures.
 - Copy email appears only when the clipboard API is supported in a secure context. Permission failure shows a useful fallback.
 - Section links use an active location indicator. Smooth anchor scrolling accounts for the sticky header.
-- Motion uses short opacity/transform transitions, staggered project entrances, brief disclosure/menu entrances, and responsive hover feedback; it keeps normal scrolling, and respects `prefers-reduced-motion`. Content is never hidden while waiting for a scroll observer.
+- Motion uses a short hero sequence, staggered project entrances, position-based filter transitions, two-way disclosure expansion, and mobile-menu entrances/exits. Pointer hover effects stay small and are limited to devices with a fine pointer. Content is never hidden while waiting for a scroll observer.
+- Custom animations use the native Web Animations API, with no animation dependencies. Filter changes measure card positions before and after layout changes, then animate the translation. Disclosure wrappers animate measured heights and retain native details/summary semantics, including keyboard activation and the no-JavaScript fallback.
+- Rapid interactions cancel the previous animation before starting the next. Changing the device's reduced-motion preference mid-visit finishes active custom motion and makes subsequent interactions immediate. Menu state, focus, and inertness are restored when animations finish or the viewport changes.
 - A thin reading-progress rule keeps the long page oriented. Scroll updates are batched with requestAnimationFrame, and the range refreshes after disclosures and filtering change the document height.
 - The navigation collapses at 760px to leave enough room for the added Certifications link. Secondary project cards use one factual description rather than both a tagline and description.
 - Decorative artwork is inline HTML/SVG and makes no network requests. There are no analytics, autoplay elements, scroll libraries, or third-party runtime calls.
@@ -71,7 +73,7 @@ The site stays a static deployment: no framework runtime, package installation, 
 
 Serve the repository using `python3 -m http.server 8000 --bind 127.0.0.1`.
 
-Run `python3 scripts/smoke_test.py` in an environment with Python Playwright and Chromium. The check starts and stops its own local HTTP server, covers nine viewport widths, all filter categories, notes, the workbench, mobile keyboard controls, clipboard success/failure, reduced motion, assets, and no-JavaScript mobile navigation. It does not install packages or write generated artifacts to the repository.
+Run `python3 scripts/smoke_test.py` in an environment with Python Playwright and Chromium. The check starts and stops its own local HTTP server, covers nine viewport widths, all filter categories, notes, the workbench, mobile keyboard controls, clipboard success/failure, reduced motion, assets, and no-JavaScript mobile navigation. It also covers rapid interrupted disclosure/menu transitions, resizing an open menu, and changing reduced-motion preferences during a transition. It does not install packages or write generated artifacts to the repository.
 
 Manual visual review uses desktop, tablet, and mobile browser screenshots. Automated accessibility checks supplement that review; they are not a substitute for assistive-technology user testing.
 
