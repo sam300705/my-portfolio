@@ -147,22 +147,55 @@
   );
 
   const progress = document.querySelector(".reading-progress");
+  const supportsScrollTimeline = CSS.supports(
+    "animation-timeline",
+    "scroll(root block)",
+  );
   let progressFrame = null;
+  let rangeDirty = true;
+  let scrollRange = 0;
+  let compositorProgress = false;
   const updateProgress = () => {
-    const range = document.documentElement.scrollHeight - innerHeight;
-    progress.style.transform = `scaleX(${range > 0 ? Math.min(1, Math.max(0, scrollY / range)) : 0})`;
+    // Read layout only after its dimensions change, never for every scroll event.
+    if (rangeDirty) {
+      scrollRange = Math.max(
+        0,
+        document.documentElement.scrollHeight -
+          document.documentElement.clientHeight,
+      );
+      rangeDirty = false;
+    }
+    const fraction = scrollRange
+      ? Math.min(1, Math.max(0, scrollY / scrollRange))
+      : 0;
+    progress.style.transform = `scaleX(${fraction})`;
     progressFrame = null;
   };
-  const scheduleProgress = () => {
-    if (progressFrame === null)
+  const scheduleProgress = (invalidateRange = true) => {
+    if (invalidateRange) rangeDirty = true;
+    if (!compositorProgress && progressFrame === null)
       progressFrame = requestAnimationFrame(updateProgress);
   };
-  addEventListener("scroll", scheduleProgress, { passive: true });
+  const onProgressScroll = () => scheduleProgress(false);
+  const configureProgress = () => {
+    compositorProgress = supportsScrollTimeline && !motionPreference.matches;
+    progress.classList.toggle("is-scroll-driven", compositorProgress);
+    removeEventListener("scroll", onProgressScroll);
+    if (progressFrame !== null) cancelAnimationFrame(progressFrame);
+    progressFrame = null;
+    if (compositorProgress) progress.style.removeProperty("transform");
+    else {
+      addEventListener("scroll", onProgressScroll, { passive: true });
+      scheduleProgress();
+    }
+  };
   addEventListener("resize", scheduleProgress);
+  addEventListener("pageshow", scheduleProgress);
   document.addEventListener("toggle", scheduleProgress, true);
   if ("ResizeObserver" in window)
     new ResizeObserver(scheduleProgress).observe(document.body);
-  updateProgress();
+  motionPreference.addEventListener("change", configureProgress);
+  configureProgress();
 
   // Animate both directions without replacing native details/summary semantics.
   document.querySelectorAll(".project-detail, .archive").forEach((details) => {
@@ -257,7 +290,7 @@
             }
           });
         },
-        { threshold: 0.08 },
+        { threshold: 0, rootMargin: "0px 0px -24px 0px" },
       );
       document
         .querySelectorAll(

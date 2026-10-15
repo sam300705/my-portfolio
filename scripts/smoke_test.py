@@ -128,6 +128,44 @@ def run(base):
         assert not errors, errors
         print('PASS: interrupted disclosures, rapid menu clicks, resize, and live reduced-motion changes')
         page.close()
+        # Exercise the browser timeline and the older-browser fallback separately.
+        for force_fallback in (False, True):
+            page = browser.new_page(viewport={'width':390,'height':844})
+            if force_fallback:
+                page.add_init_script("""
+                  const originalSupports = CSS.supports.bind(CSS);
+                  CSS.supports = (...args) => args[0] === 'animation-timeline' ? false : originalSupports(...args);
+                """)
+            page.goto(base, wait_until='networkidle')
+            page.wait_for_function('document.fonts.status === "loaded"')
+            if not force_fallback:
+                assert page.locator('.reading-progress').evaluate('(el) => el.classList.contains("is-scroll-driven")')
+                session = page.context.new_cdp_session(page)
+                window_id = session.send('Runtime.evaluate', {'expression':'window'})['result']['objectId']
+                listeners = session.send('DOMDebugger.getEventListeners', {'objectId':window_id})['listeners']
+                assert not [listener for listener in listeners if listener['type'] == 'scroll']
+                session.detach()
+            # Mid-page and final progress must follow actual scroll position.
+            page.evaluate('window.scrollTo({top: (document.documentElement.scrollHeight-innerHeight)/2, behavior:"instant"})')
+            page.wait_for_function("Math.abs(parseFloat(getComputedStyle(document.querySelector('.reading-progress')).transform.split('(')[1]) - .5) < .03")
+            page.evaluate('window.scrollTo({top:document.documentElement.scrollHeight,behavior:"instant"})')
+            page.wait_for_function('getComputedStyle(document.querySelector(".reading-progress")).transform === "matrix(1, 0, 0, 1, 0, 0)"')
+            # Changing document height must not leave a stale progress range.
+            page.locator('.archive').evaluate('(el) => el.open = true')
+            page.evaluate('window.scrollTo({top:(document.documentElement.scrollHeight-innerHeight)*.25,behavior:"instant"})')
+            page.wait_for_function("Math.abs(parseFloat(getComputedStyle(document.querySelector('.reading-progress')).transform.split('(')[1]) - .25) < .03")
+            page.evaluate('window.scrollTo({top:document.documentElement.scrollHeight,behavior:"instant"})')
+            page.wait_for_function('getComputedStyle(document.querySelector(".reading-progress")).transform === "matrix(1, 0, 0, 1, 0, 0)"')
+            page.locator('.archive').evaluate('(el) => el.open = false')
+            page.emulate_media(reduced_motion='reduce')
+            page.evaluate('window.scrollTo({top:0,behavior:"instant"})')
+            page.wait_for_function('getComputedStyle(document.querySelector(".reading-progress")).transform === "matrix(0, 0, 0, 1, 0, 0)"')
+            # Anchor targets remain below the sticky header, including keyboard focus.
+            page.locator('a[href="#about"]').first.evaluate('(el) => el.click()')
+            page.wait_for_function("Math.abs(document.querySelector('#about').getBoundingClientRect().top - document.querySelector('.site-header').getBoundingClientRect().bottom - 20) < 2")
+            assert page.url.endswith('#about')
+            print('PASS: scroll progress, height changes, reduced motion, and anchor offset (' + ('cached fallback' if force_fallback else 'native timeline; no JS scroll listener') + ')')
+            page.close()
         # Clipboard success and permission-denied behavior.
         context = browser.new_context(permissions=['clipboard-read', 'clipboard-write'])
         page = context.new_page()

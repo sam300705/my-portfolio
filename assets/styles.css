@@ -7,6 +7,7 @@
 }
 :root {
   --paper: #f8f7f4;
+  --header-height: 88px;
   --surface: #efeee9;
   --ink: #252623;
   --muted: #666760;
@@ -26,7 +27,7 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 110px;
+  scroll-padding-top: calc(var(--header-height) + 20px);
 }
 body {
   margin: 0;
@@ -155,9 +156,8 @@ button:focus-visible {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgb(248 247 244 / 0.95);
+  background: var(--paper);
   border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(16px);
 }
 .nav {
   height: 88px;
@@ -1947,7 +1947,7 @@ h2 {
     --gutter: 22px;
   }
   html {
-    scroll-padding-top: 90px;
+    scroll-padding-top: calc(var(--header-height) + 20px);
   }
   .nav {
     height: 72px;
@@ -2584,7 +2584,7 @@ h2 {
 }
 /* Continuous learning is a quiet chapter, ready for real credentials. */
 .certifications {
-  scroll-margin-top: 20px;
+  scroll-margin-top: 0;
 }
 .credentials-layout {
   display: grid;
@@ -2895,5 +2895,71 @@ h2 {
   }
   .contact-socials a:hover svg {
     transform: translate(2px, -2px);
+  }
+}
+
+/* Native scrolling stays in charge; progress runs on the scroll timeline when available. */
+.reading-progress {
+  will-change: transform;
+}
+.project-art {
+  contain: layout paint;
+}
+.disclosure-panel {
+  overflow-anchor: none;
+}
+@supports (animation-timeline: scroll(root block)) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reading-progress.is-scroll-driven {
+      animation: reading-progress linear both;
+      animation-timeline: scroll(root block);
+    }
+    @keyframes reading-progress {
+      from {
+        transform: scaleX(0);
+      }
+      to {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+@media (max-width: 800px) {
+  :root {
+    --header-height: 74px;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    --header-height: 72px;
+  }
+}
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .project-card.reveal-in {
+    animation-name: mobile-enter;
+    animation-duration: 420ms;
+  }
+  .about-grid.reveal-in,
+  .credentials-layout.reveal-in,
+  .contact-grid.reveal-in {
+    animation: mobile-section-enter 350ms ease-out both;
+  }
+  @keyframes mobile-enter {
+    from {
+      opacity: 0.65;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes mobile-section-enter {
+    from {
+      opacity: 0.7;
+    }
+    to {
+      opacity: 1;
+    }
   }
 }
