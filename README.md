@@ -1,6 +1,6 @@
-# Kumar Sambhav | AI & Data Engineer Portfolio
+# Kumar Sambhav | Web Development Portfolio
 
-Personal portfolio for Kumar Sambhav, a B.Tech Computer Science and Information Technology student graduating in 2027 and focused on secure, reliable, and data-informed software.
+Personal portfolio for Kumar Sambhav, a B.Tech Computer Science and Information Technology student graduating in 2027 and focused on web development and useful, accessible web experiences.
 
 **Live site:** [sambhavcodes.in](https://sambhavcodes.in)
 

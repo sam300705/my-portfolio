@@ -38,7 +38,7 @@ The Awwwards website could not be reached under this environment's network polic
 1. **Introduction**: name, engineering focus, real portrait, work and résumé actions, location, and internship availability.
 2. **Selected work**: five projects, category filters, technical notes, and direct repository links. AgentShield leads with a system diagram; four complementary projects follow.
 3. **Workbench**: an expandable archive of eight experiments and additional projects.
-4. **About**: education, approach, and three capability groups supported by the actual project mix.
+4. **About**: education, approach, and a concise web development skills group. Personal skill claims should reflect Sambhav’s stated knowledge, rather than be inferred from project technologies.
 5. **Certifications**: a compact, honest placeholder for future credentials, with room for certificate titles, issuers, dates, and verification links.
 6. **Contact**: email, copy action, GitHub, LinkedIn, résumé, and back-to-top navigation.
 
