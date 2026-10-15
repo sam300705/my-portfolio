@@ -3,9 +3,13 @@
   "short_name": "KS Portfolio",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#07111f",
-  "theme_color": "#07111f",
+  "background_color": "#f8f7f4",
+  "theme_color": "#f8f7f4",
   "icons": [
-    {"src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml"}
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
   ]
 }

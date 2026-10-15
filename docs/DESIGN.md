@@ -1,0 +1,105 @@
+# Portfolio design and architecture
+
+## Direction
+
+An editorial portfolio for Kumar Sambhav: calm, precise, and personal. The design prioritizes a clear introduction, actual project substance, and an easy path to contact. It uses a consistent grid, thin rules, generous spacing, restrained illustration, and a mix of modern sans-serif and italic serif typography.
+
+The previous page had strong content but made projects read like a long text inventory. The redesign gives projects distinct visual identities and exposes implementation details through native disclosures. Research and pilot projects retain their scope qualifications. Illustrations are explicitly labeled as sketches or concepts; they are not represented as product screenshots.
+
+## Color and typography
+
+| Token          | Value     | Purpose                                       |
+| -------------- | --------- | --------------------------------------------- |
+| Paper          | `#f8f7f4` | Warm main canvas                              |
+| Surface        | `#efeee9` | About section and quiet surfaces              |
+| Ink            | `#252623` | Headings, primary actions, contact background |
+| Muted          | `#666760` | Supporting copy                               |
+| Line           | `#d9d9d0` | Structural separators                         |
+| Accent         | `#ad3b27` | Terracotta emphasis, section labels, focus    |
+| Inverse accent | `#e5b59d` | Emphasis on the dark contact section          |
+
+Manrope is self-hosted as a 34 KB Latin-subset variable WOFF. Georgia provides italic editorial accents without another font download. The font license is retained in `assets/fonts/OFL.txt`. Body copy uses readable contrast; lower-contrast diagram decoration is hidden from assistive technology and has adjacent descriptive project content.
+
+### Research
+
+Reviewed the following online sources during implementation:
+
+- [Radix: Understanding the scale](https://www.radix-ui.com/colors/docs/palette-composition/understanding-the-scale), read from the [official documentation source](https://github.com/radix-ui/website/blob/master/data/colors/docs/palette-composition/understanding-the-scale.mdx): separate background, interactive-state, border, and text roles rather than applying a single accent everywhere.
+- [Radix Colors official palette source](https://github.com/radix-ui/colors/blob/main/src/light.ts): examined the Sand neutral scale and warm accent scales when choosing the custom ivory/charcoal/terracotta palette. The final colors are custom, not a claim of Radix's built-in contrast guarantees.
+- [Manrope, Google Fonts](https://github.com/google/fonts/tree/main/ofl/manrope): official font and Open Font License source.
+
+- [MDN: prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion), read from the [official source](https://github.com/mdn/content/blob/main/files/en-us/web/css/reference/at-rules/@media/prefers-reduced-motion/index.md): follow device preferences, including when preferences change during a visit.
+- [W3C: Animation from Interactions](https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html), read from the [official source](https://github.com/w3c/wcag/blob/main/understanding/21/animation-from-interactions.html): keep motion purposeful and allow users to suppress nonessential animation.
+
+The Awwwards website could not be reached under this environment's network policy. No claim is made to have reviewed it. Figma tools were unavailable; the finished browser implementation is the design artifact.
+
+## Information architecture
+
+1. **Introduction**: name, engineering focus, real portrait, work and résumé actions, location, and internship availability.
+2. **Selected work**: five projects, category filters, technical notes, and direct repository links. AgentShield leads with a system diagram; four complementary projects follow.
+3. **Workbench**: an expandable archive of eight experiments and additional projects.
+4. **About**: education, approach, and three capability groups supported by the actual project mix.
+5. **Certifications**: a compact, honest placeholder for future credentials, with room for certificate titles, issuers, dates, and verification links.
+6. **Contact**: email, copy action, GitHub, LinkedIn, résumé, and back-to-top navigation.
+
+## Technical architecture
+
+```text
+index.html                  Semantic content, metadata, project sketches, native disclosures
+assets/styles.css           Tokens, components, layout, responsive rules, reduced motion
+assets/main.js              Navigation, filters, clipboard, active sections, light entrance motion
+assets/fonts/               Self-hosted Manrope and license
+assets/                     Existing portrait, résumé, social image, favicon
+scripts/smoke_test.py        Browser integration checks with an ephemeral local server
+```
+
+The site stays a static deployment: no framework runtime, package installation, backend, or build process. JavaScript progressively enhances content that is already present in HTML. Keeping semantic HTML and native `<details>` allows project notes and archive content to work without JavaScript. A no-script mobile navigation fallback preserves access to section links.
+
+### Interaction details
+
+- Mobile menu exposes its state with `aria-expanded`, closes after navigation or outside click, and restores focus after Escape.
+- Filters are real buttons with pressed states; hidden projects leave the tab order and accessibility tree. The selected project count is announced in a live region.
+- Project notes and workbench use keyboard-accessible native disclosures.
+- Copy email appears only when the clipboard API is supported in a secure context. Permission failure shows a useful fallback.
+- Section links use an active location indicator. Smooth anchor scrolling accounts for the sticky header.
+- Motion uses short opacity/transform transitions, staggered project entrances, brief disclosure/menu entrances, and responsive hover feedback; it keeps normal scrolling, and respects `prefers-reduced-motion`. Content is never hidden while waiting for a scroll observer.
+- A thin reading-progress rule keeps the long page oriented. Scroll updates are batched with requestAnimationFrame, and the range refreshes after disclosures and filtering change the document height.
+- The navigation collapses at 760px to leave enough room for the added Certifications link. Secondary project cards use one factual description rather than both a tagline and description.
+- Decorative artwork is inline HTML/SVG and makes no network requests. There are no analytics, autoplay elements, scroll libraries, or third-party runtime calls.
+
+## Development and verification
+
+Serve the repository using `python3 -m http.server 8000 --bind 127.0.0.1`.
+
+Run `python3 scripts/smoke_test.py` in an environment with Python Playwright and Chromium. The check starts and stops its own local HTTP server, covers nine viewport widths, all filter categories, notes, the workbench, mobile keyboard controls, clipboard success/failure, reduced motion, assets, and no-JavaScript mobile navigation. It does not install packages or write generated artifacts to the repository.
+
+Manual visual review uses desktop, tablet, and mobile browser screenshots. Automated accessibility checks supplement that review; they are not a substitute for assistive-technology user testing.
+
+## Adding real certifications later
+
+No credentials were supplied, so the live section contains no invented certificates, issuers, dates, badges, or verification claims. Keep the placeholder until there is a completed certification to publish.
+
+In `index.html`, replace `.credentials-empty` inside `.credentials-list` with one or more `.credential` articles. Use the structure below with actual values. Replace every bracketed field and the verification URL before publishing:
+
+```html
+<article class="credential">
+  <div>
+    <h3>[Actual certificate title]</h3>
+    <p>[Issuing organization] · [Topic or skill area]</p>
+  </div>
+  <time datetime="YYYY-MM">[Month Year]</time>
+  <a
+    class="text-link"
+    href="[Issuer verification URL]"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Verify credential
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 19 19 5M5 5h14v14" />
+    </svg>
+  </a>
+</article>
+```
+
+Order credentials by relevance to the work you want, then recency. Three or four visible rows are enough initially; as the list grows, group older items in a native disclosure rather than adding a wall of logos. Omit verification links when the issuer provides none. If a credential expires, include its expiry accurately. Update the browser check's empty-state assertion when real credentials replace the placeholder.
