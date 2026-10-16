@@ -22,11 +22,14 @@ def check_assets(page, base):
       return value && !/^(https?:|data:)/.test(value) ? [value] : [];
     })""")
     paths += ['assets/Kumar-Sambhav-Resume.pdf', 'assets/og-card.png', 'robots.txt', 'sitemap.xml']
+    paths += page.locator('a[href^="assets/certificates/"]').evaluate_all('links => links.map(a => a.getAttribute("href"))')
     manifest = json.loads(urlopen(base + 'site.webmanifest').read())
     paths += [icon['src'] for icon in manifest['icons']]
     for path in set(paths):
         with urlopen(base + path) as response:
-            assert response.status == 200 and response.read(), path
+            body = response.read()
+            assert response.status == 200 and body, path
+            if path.endswith('.pdf'): assert body.startswith(b'%PDF-'), path
     for href in page.locator('a[href^="#"]').evaluate_all('nodes => nodes.map(n => n.hash)'):
         assert page.locator(href).count() == 1, f'Missing anchor: {href}'
     print(f'PASS: {len(set(paths))} local resources and all internal anchors')
@@ -46,7 +49,8 @@ def run(base):
             assert page.locator('.project-card:visible').count() == 5
             assert page.locator('main > section').evaluate_all("sections => sections.map(s => s.id).join(',')") == ',work,about,certifications,contact'
             assert page.locator('#certifications h2').inner_text() == 'Always a student.'
-            assert page.locator('#certifications .credential').count() == 0
+            assert page.locator('#certifications .credential').count() == 7
+            assert page.locator('#certifications .credential:visible').count() == 3
             assert not page.evaluate('document.documentElement.scrollWidth > innerWidth'), width
             assert page.locator('img').evaluate_all('images => images.every(i => i.complete && i.naturalWidth > 0)')
             assert page.evaluate('document.fonts.check("500 16px Manrope")')
@@ -83,7 +87,18 @@ def run(base):
                 toggle.click()
             page.get_by_role('navigation').get_by_role('link', name='Certifications', exact=True).click()
             assert page.url.endswith('#certifications')
-            assert page.locator('#certifications .credentials-empty').is_visible()
+            assert page.locator('#certifications .credentials-list').is_visible()
+            if width in (390, 1440):
+                more = page.locator('.credentials-more')
+                more.locator('summary').focus()
+                page.keyboard.press('Enter')
+                more.locator('.credentials-more-list').wait_for(state='visible')
+                assert page.locator('#certifications .credential:visible').count() == 7
+                assert page.locator('#certifications a[href^="assets/certificates/"]').count() == 5
+                assert page.locator('a[href="https://verify.skilljar.com/c/yy6sk6home9p"]').count() == 1
+                assert not page.evaluate('document.documentElement.scrollWidth > innerWidth')
+                more.locator('summary').click()
+                more.locator('.credentials-more-list').wait_for(state='hidden')
             if width <= 760: assert toggle.get_attribute('aria-expanded') == 'false'
             assert not errors, errors
             assert not failed, failed
@@ -193,6 +208,9 @@ def run(base):
         assert page.locator('.project-card:visible').count() == 5
         assert page.get_by_role('navigation').get_by_role('link', name='Certifications', exact=True).is_visible()
         assert page.locator('#certifications h2').inner_text() == 'Always a student.'
+        assert page.locator('#certifications .credential').count() == 7
+        page.locator('.credentials-more summary').click()
+        assert page.locator('#certifications .credential:visible').count() == 7
         assert not page.locator('.filters').is_visible()
         page.locator('#agentshield summary').click()
         assert page.locator('#agentshield .detail-body').is_visible()

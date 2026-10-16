@@ -39,7 +39,7 @@ The Awwwards website could not be reached under this environment's network polic
 2. **Selected work**: five projects, category filters, technical notes, and direct repository links. AgentShield leads with a system diagram; four complementary projects follow.
 3. **Workbench**: an expandable archive of eight experiments and additional projects.
 4. **About**: education, approach, and a concise web development skills group. Personal skill claims should reflect Sambhav’s stated knowledge, rather than be inferred from project technologies.
-5. **Certifications**: a compact, honest placeholder for future credentials, with room for certificate titles, issuers, dates, and verification links.
+5. **Certifications**: seven course/training/simulation records, with three visible rows and four more in an expandable list. Five original PDFs are served locally; the Claude Code course includes its printed verification link.
 6. **Contact**: email, copy action, GitHub, LinkedIn, résumé, and back-to-top navigation.
 
 ## Technical architecture
@@ -78,31 +78,20 @@ Run `python3 scripts/smoke_test.py` in an environment with Python Playwright and
 
 Manual visual review uses desktop, tablet, and mobile browser screenshots. Automated accessibility checks supplement that review; they are not a substitute for assistive-technology user testing.
 
-## Adding real certifications later
+## Maintaining certifications
 
-No credentials were supplied, so the live section contains no invented certificates, issuers, dates, badges, or verification claims. Keep the placeholder until there is a completed certification to publish.
+Credential titles, issuers, and dates were transcribed from the user-supplied certificates. Course completion and training are not presented as professional licensure or proof of advanced expertise. The Forage item is explicitly labeled a job simulation, not employment at British Airways. The personal skills section remains limited to the user's stated web-development focus.
 
-In `index.html`, replace `.credentials-empty` inside `.credentials-list` with one or more `.credential` articles. Use the structure below with actual values. Replace every bracketed field and the verification URL before publishing:
+| Credential                       | Issuer / platform              | Completion date  | Evidence                                           |
+| -------------------------------- | ------------------------------ | ---------------- | -------------------------------------------------- |
+| Introduction to Software Testing | Simplilearn / SkillUp          | 29 March 2026    | Original PDF                                       |
+| Claude Code in Action            | Anthropic                      | 5 April 2026     | Original PDF and printed Skilljar verification URL |
+| Operating Systems Basics         | Cisco Networking Academy       | 4 September 2026 | Original PDF                                       |
+| Networking Basics                | Cisco Networking Academy       | 7 March 2026     | Original PDF                                       |
+| Introduction to Cybersecurity    | Cisco Networking Academy       | 25 April 2025    | Original PDF                                       |
+| AI Career Readiness Training     | ASEAN Foundation / ASEAN Ahead | 7 October 2026   | Image supplied in chat                             |
+| Data Science Job Simulation      | British Airways / Forage       | 18 March 2026    | Image supplied in chat                             |
 
-```html
-<article class="credential">
-  <div>
-    <h3>[Actual certificate title]</h3>
-    <p>[Issuing organization] · [Topic or skill area]</p>
-  </div>
-  <time datetime="YYYY-MM">[Month Year]</time>
-  <a
-    class="text-link"
-    href="[Issuer verification URL]"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Verify credential
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M5 19 19 5M5 5h14v14" />
-    </svg>
-  </a>
-</article>
-```
+The two image-only certificates are listed without download links because those images were not available as files in the workspace. No replacement certificate images, fabricated issuer URLs, or inferred verification endpoints were created. The original five PDF files are copied byte-for-byte into `assets/certificates/` under readable filenames. The printed Skilljar URL is offered as a verification action; independent online verification has not been claimed.
 
-Order credentials by relevance to the work you want, then recency. Three or four visible rows are enough initially; as the list grows, group older items in a native disclosure rather than adding a wall of logos. Omit verification links when the issuer provides none. If a credential expires, include its expiry accurately. Update the browser check's empty-state assertion when real credentials replace the placeholder.
+Add future records as semantic `.credential` articles. Include the exact title, issuer, completion date in a `<time datetime="YYYY-MM-DD">`, and a `.credential-kind` describing the document accurately. Place local PDF and issuer verification links in `.credential-links` with descriptive accessible names. Omit links when no source is available. Keep the first three records relevant to the target work, and group the rest in `.credentials-more`. The existing native disclosure works without JavaScript and uses the same measured-height animation as project notes when scripting is available. Update the record-count and asset assertions in `scripts/smoke_test.py` when adding records.

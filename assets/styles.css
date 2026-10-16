@@ -2963,3 +2963,115 @@ h2 {
     }
   }
 }
+/* Credentials are compact records, rather than a gallery of large badge images. */
+.credentials-layout {
+  align-items: start;
+}
+.credential-note {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+  max-width: 285px;
+  margin-top: 28px;
+}
+.credential {
+  gap: 12px 18px;
+  padding-block: 23px;
+}
+.credential-info {
+  min-width: 0;
+}
+.credential-kind {
+  display: block;
+  font-size: 8px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.credential time {
+  padding-top: 2px;
+  white-space: nowrap;
+}
+.credential-links {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 25px;
+  grid-column: 1 / -1;
+}
+.credential-links .text-link {
+  font-size: 10px;
+  gap: 8px;
+  min-height: 34px;
+}
+.credential-links .text-link svg {
+  width: 13px;
+  height: 13px;
+}
+.credential-filetype {
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 400;
+}
+.credentials-more {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.credentials-more > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 62px;
+  font-size: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+.credentials-more > summary::-webkit-details-marker {
+  display: none;
+}
+.credentials-more-count {
+  font-size: 9px;
+  color: var(--muted);
+  margin-left: 10px;
+}
+.credentials-more-icon {
+  font-size: 20px;
+  font-weight: 400;
+  transition: transform 240ms var(--ease);
+}
+.credentials-more[open] .credentials-more-icon {
+  transform: rotate(45deg);
+}
+.credentials-more > summary:hover {
+  color: var(--accent);
+}
+.credentials-more-list > .credential:last-child {
+  border-bottom: none;
+}
+@media (min-width: 801px) {
+  .credentials-intro {
+    position: sticky;
+    top: calc(var(--header-height) + 30px);
+  }
+}
+@media (max-width: 600px) {
+  .credential h3 {
+    font-size: 16px;
+  }
+  .credential p {
+    font-size: 11px;
+  }
+  .credential time {
+    font-size: 9px;
+  }
+  .credential-note {
+    margin-top: 18px;
+    max-width: 300px;
+  }
+  .credentials-more > summary {
+    font-size: 11px;
+  }
+}

@@ -198,44 +198,52 @@
   configureProgress();
 
   // Animate both directions without replacing native details/summary semantics.
-  document.querySelectorAll(".project-detail, .archive").forEach((details) => {
-    const summary = details.querySelector("summary");
-    const content = details.querySelector(".detail-body, .archive-list");
-    const panel = document.createElement("div");
-    panel.className = "disclosure-panel";
-    content.before(panel);
-    panel.append(content);
-    details.classList.add("motion-disclosure");
-    let desiredOpen = details.open;
-    let animation = null;
-    summary.addEventListener("click", (event) => {
-      if (event.defaultPrevented || motionPreference.matches || !panel.animate)
-        return;
-      event.preventDefault();
-      desiredOpen = !desiredOpen;
-      const from = details.open ? panel.getBoundingClientRect().height : 0;
-      animation?.cancel();
-      details.open = true;
-      panel.style.overflow = "clip";
-      const to = desiredOpen ? panel.scrollHeight : 0;
-      animation = animate(
-        panel,
-        [{ height: `${from}px` }, { height: `${to}px` }],
-        { duration: desiredOpen ? 320 : 240 },
+  document
+    .querySelectorAll(".project-detail, .archive, .credentials-more")
+    .forEach((details) => {
+      const summary = details.querySelector("summary");
+      const content = details.querySelector(
+        ".detail-body, .archive-list, .credentials-more-list",
       );
-      const finish = () => {
-        details.open = desiredOpen;
-        panel.style.overflow = "";
-        animation = null;
-        scheduleProgress();
-      };
-      if (animation) animation.finished.then(finish, () => {});
-      else finish();
+      const panel = document.createElement("div");
+      panel.className = "disclosure-panel";
+      content.before(panel);
+      panel.append(content);
+      details.classList.add("motion-disclosure");
+      let desiredOpen = details.open;
+      let animation = null;
+      summary.addEventListener("click", (event) => {
+        if (
+          event.defaultPrevented ||
+          motionPreference.matches ||
+          !panel.animate
+        )
+          return;
+        event.preventDefault();
+        desiredOpen = !desiredOpen;
+        const from = details.open ? panel.getBoundingClientRect().height : 0;
+        animation?.cancel();
+        details.open = true;
+        panel.style.overflow = "clip";
+        const to = desiredOpen ? panel.scrollHeight : 0;
+        animation = animate(
+          panel,
+          [{ height: `${from}px` }, { height: `${to}px` }],
+          { duration: desiredOpen ? 320 : 240 },
+        );
+        const finish = () => {
+          details.open = desiredOpen;
+          panel.style.overflow = "";
+          animation = null;
+          scheduleProgress();
+        };
+        if (animation) animation.finished.then(finish, () => {});
+        else finish();
+      });
+      details.addEventListener("toggle", () => {
+        if (!animation) desiredOpen = details.open;
+      });
     });
-    details.addEventListener("toggle", () => {
-      if (!animation) desiredOpen = details.open;
-    });
-  });
 
   const copy = document.querySelector(".copy-email");
   const copyStatus = document.querySelector(".copy-status");
