@@ -50,7 +50,8 @@ def run(base):
             assert page.locator('main > section').evaluate_all("sections => sections.map(s => s.id).join(',')") == ',work,about,certifications,contact'
             assert page.locator('#certifications h2').inner_text() == 'Always a student.'
             assert page.locator('#certifications .credential').count() == 7
-            assert page.locator('#certifications .credential:visible').count() == 5
+            assert page.locator('#certifications .credential h3').all_text_contents()[-2:] == ['AI Career Readiness Training', 'Data Science Job Simulation']
+            assert page.locator('#certifications .credential:visible').count() == 7
             assert page.get_by_role('heading', name='AI Career Readiness Training', exact=True).is_visible()
             assert page.get_by_role('heading', name='Data Science Job Simulation', exact=True).is_visible()
             assert not page.evaluate('document.documentElement.scrollWidth > innerWidth'), width
@@ -92,6 +93,9 @@ def run(base):
             assert page.locator('#certifications .credentials-list').is_visible()
             if width in (390, 1440):
                 more = page.locator('.credentials-more')
+                more.locator('summary').click()
+                more.locator('.credentials-more-list').wait_for(state='hidden')
+                assert page.locator('#certifications .credential:visible').count() == 5
                 more.locator('summary').focus()
                 page.keyboard.press('Enter')
                 more.locator('.credentials-more-list').wait_for(state='visible')
@@ -211,6 +215,9 @@ def run(base):
         assert page.get_by_role('navigation').get_by_role('link', name='Certifications', exact=True).is_visible()
         assert page.locator('#certifications h2').inner_text() == 'Always a student.'
         assert page.locator('#certifications .credential').count() == 7
+        assert page.locator('#certifications .credential:visible').count() == 7
+        page.locator('.credentials-more summary').click()
+        assert page.locator('#certifications .credential:visible').count() == 5
         page.locator('.credentials-more summary').click()
         assert page.locator('#certifications .credential:visible').count() == 7
         assert not page.locator('.filters').is_visible()
