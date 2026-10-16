@@ -50,7 +50,9 @@ def run(base):
             assert page.locator('main > section').evaluate_all("sections => sections.map(s => s.id).join(',')") == ',work,about,certifications,contact'
             assert page.locator('#certifications h2').inner_text() == 'Always a student.'
             assert page.locator('#certifications .credential').count() == 7
-            assert page.locator('#certifications .credential:visible').count() == 3
+            assert page.locator('#certifications .credential:visible').count() == 5
+            assert page.get_by_role('heading', name='AI Career Readiness Training', exact=True).is_visible()
+            assert page.get_by_role('heading', name='Data Science Job Simulation', exact=True).is_visible()
             assert not page.evaluate('document.documentElement.scrollWidth > innerWidth'), width
             assert page.locator('img').evaluate_all('images => images.every(i => i.complete && i.naturalWidth > 0)')
             assert page.evaluate('document.fonts.check("500 16px Manrope")')
