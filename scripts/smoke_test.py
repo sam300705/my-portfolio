@@ -96,7 +96,7 @@ def run(base):
                 page.keyboard.press('Enter')
                 more.locator('.credentials-more-list').wait_for(state='visible')
                 assert page.locator('#certifications .credential:visible').count() == 7
-                assert page.locator('#certifications a[href^="assets/certificates/"]').count() == 5
+                assert page.locator('#certifications a[href^="assets/certificates/"]').count() == 7
                 assert page.locator('a[href="https://verify.skilljar.com/c/yy6sk6home9p"]').count() == 1
                 assert not page.evaluate('document.documentElement.scrollWidth > innerWidth')
                 more.locator('summary').click()

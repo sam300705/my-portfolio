@@ -12,7 +12,7 @@ Personal portfolio for Kumar Sambhav, a B.Tech Computer Science and Information 
 - SEO metadata, structured data, social preview, favicon, sitemap, and web manifest
 - Responsive editorial design with self-hosted typography and project architecture sketches
 - Project category filters, expandable technical notes, and a browsable workbench
-- Seven course, training, and simulation credentials, with five certificate PDFs and an issuer verification link
+- Seven course, training, and simulation credentials, with seven certificate PDFs and an issuer verification link
 - Reduced-motion support, keyboard-accessible mobile navigation, and clipboard email action
 
 ## Selected projects
