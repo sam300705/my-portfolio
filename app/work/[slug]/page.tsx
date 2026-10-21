@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import Architecture from "@/components/Architecture";
 import ImageComparison from "@/components/ImageComparison";
 import { Arrow } from "@/components/Icon";
-import { MotionToggle } from "@/components/Motion";
 import { projects, sourceUrl, identity } from "@/lib/content";
 import styles from "./case.module.scss";
 type Props = { params: Promise<{ slug: string }> };
@@ -242,7 +241,6 @@ export default async function CaseStudy({ params }: Props) {
           <a href={`mailto:${identity.email}`}>
             Have a question? Email me <Arrow />
           </a>
-          <MotionToggle />
         </footer>
       </div>
       <script

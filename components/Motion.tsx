@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useSyncExternalStore } from "react";
+import { usePathname } from "next/navigation";
 let sessionPreference = false;
 const readPreference = () => {
   try {
@@ -10,13 +11,25 @@ const readPreference = () => {
   }
 };
 const subscribe = (callback: () => void) => {
+  const media = matchMedia("(prefers-reduced-motion: reduce)");
+  media.addEventListener("change", callback);
   window.addEventListener("portfolio:motion-change", callback);
   window.addEventListener("storage", callback);
   return () => {
+    media.removeEventListener("change", callback);
     window.removeEventListener("portfolio:motion-change", callback);
     window.removeEventListener("storage", callback);
   };
 };
+export function useMotionAllowed() {
+  return useSyncExternalStore(
+    subscribe,
+    () =>
+      !readPreference() &&
+      !matchMedia("(prefers-reduced-motion: reduce)").matches,
+    () => false,
+  );
+}
 export function MotionToggle() {
   const reduced = useSyncExternalStore(subscribe, readPreference, () => false);
   useEffect(() => {
@@ -37,6 +50,7 @@ export function MotionToggle() {
       className="motion-toggle"
       type="button"
       aria-pressed={reduced}
+      title="Turn off optional animations and smooth scrolling"
       onClick={toggle}
     >
       {reduced ? "Motion reduced" : "Reduce motion"}
@@ -45,7 +59,10 @@ export function MotionToggle() {
   );
 }
 export function MotionEnhancements() {
+  const allowed = useMotionAllowed();
+  const pathname = usePathname();
   useEffect(() => {
+    if (!allowed) return;
     const preference = matchMedia("(prefers-reduced-motion: reduce)");
     const animations = new Set<Animation>();
     const observer = new IntersectionObserver(
@@ -96,6 +113,6 @@ export function MotionEnhancements() {
       preference.removeEventListener("change", finish);
       animations.forEach((a) => a.cancel());
     };
-  }, []);
+  }, [allowed, pathname]);
   return null;
 }

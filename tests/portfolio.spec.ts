@@ -308,3 +308,157 @@ test("build process opens a readable panel with keyboard support", async ({
     1,
   );
 });
+
+test("text index is generated from the current portfolio evidence", async ({
+  request,
+}) => {
+  const response = await request.get("/llms.txt");
+  expect(response.status()).toBe(200);
+  expect(response.headers()["content-type"]).toContain("text/plain");
+  const text = await response.text();
+  expect(text).toContain("Kumar Sambhav");
+  for (const project of projects) {
+    expect(text).toContain(project.repo);
+    expect(text).toContain(project.revision);
+  }
+  for (const cert of certificates)
+    expect(text).toContain("/assets/certificates/" + cert.file);
+  expect(text.indexOf("6. AI Career Readiness Training")).toBeLessThan(
+    text.indexOf("7. Data Science Job Simulation"),
+  );
+  expect(text).toContain("not claims of senior expertise");
+});
+
+test("one motion control disables every optional motion layer and restores honest counts", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-scroll-triggers",
+    "active",
+  );
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-smooth-scroll",
+    "active",
+  );
+  const canvas = page.locator("[data-hero-canvas]");
+  await expect(canvas).toHaveAttribute("data-render-state", "running");
+  await page.evaluate(() =>
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "instant" }),
+  );
+  await expect(canvas).toHaveAttribute("data-render-state", "paused");
+  await page.getByRole("button", { name: "Reduce motion" }).click();
+  await expect(page.locator("html")).not.toHaveAttribute(
+    "data-scroll-triggers",
+    "active",
+  );
+  await expect(page.locator("html")).not.toHaveAttribute(
+    "data-smooth-scroll",
+    "active",
+  );
+  await expect(canvas.locator("canvas")).toHaveCount(0);
+  const counts = await page.locator("[data-count]").allTextContents();
+  expect(counts).toEqual([
+    "03",
+    String(projects.length + workbench.length).padStart(2, "0"),
+    "07",
+  ]);
+  await page.reload();
+  await expect(page.locator("[data-hero-canvas] canvas")).toHaveCount(0);
+  await expect(
+    page.getByRole("button", { name: "Motion reduced" }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await page.goto("/work/agentshield");
+  await expect(
+    page.getByRole("button", { name: "Motion reduced" }),
+  ).toBeVisible();
+});
+
+test("system motion preference prevents loading the decorative WebGL layer", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await expect(page.locator("[data-hero-canvas]")).toHaveAttribute(
+    "data-render-state",
+    "disabled",
+  );
+  await page.waitForTimeout(2000);
+  await expect(page.locator("html")).not.toHaveAttribute(
+    "data-scroll-triggers",
+    "active",
+  );
+  await expect(page.locator("[data-hero-canvas] canvas")).toHaveCount(0);
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-scroll-triggers",
+    "active",
+  );
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(page.locator("html")).not.toHaveAttribute(
+    "data-scroll-triggers",
+    "active",
+  );
+});
+
+test("WebGL unavailable keeps the real portrait and a static fallback", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.addInitScript(() => {
+    const original = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = function (
+      this: HTMLCanvasElement,
+      ...args: Parameters<typeof original>
+    ) {
+      if (String(args[0]).startsWith("webgl")) return null;
+      return original.apply(this, args);
+    } as typeof original;
+  });
+  await page.goto("/");
+  await expect(page.locator("[data-hero-canvas]")).toHaveAttribute(
+    "data-render-state",
+    "unavailable",
+  );
+  await expect(
+    page.getByRole("img", {
+      name: "Kumar Sambhav, wearing glasses and a cream checked shirt",
+    }),
+  ).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+});
+
+test("phones keep native scrolling and readable final figures", async ({
+  browser,
+}) => {
+  const context = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    isMobile: true,
+    hasTouch: true,
+  });
+  const page = await context.newPage();
+  await page.goto("/");
+  await page.waitForTimeout(1800);
+  await expect(page.locator("html")).not.toHaveAttribute(
+    "data-smooth-scroll",
+    "active",
+  );
+  await expect(page.locator("html")).not.toHaveAttribute(
+    "data-scroll-triggers",
+    "active",
+  );
+  await expect(page.locator("[data-hero-canvas] canvas")).toHaveCount(0);
+  expect(await page.locator("[data-count]").allTextContents()).toEqual([
+    "03",
+    "13",
+    "07",
+  ]);
+  await page.getByRole("button", { name: "Open navigation" }).tap();
+  await page
+    .getByRole("navigation", { name: "Primary navigation" })
+    .getByRole("link", { name: "Work", exact: true })
+    .tap();
+  await expect(page).toHaveURL(/#work$/);
+  await context.close();
+});

@@ -804,3 +804,43 @@ html[data-motion="reduced"] *::after {
 .archive-list h4 {
   display: inline;
 }
+
+// A single reachable motion control on every route, away from primary actions.
+.motion-toggle {
+  position: fixed;
+  z-index: 45;
+  right: 20px;
+  bottom: 18px;
+  padding: 8px 14px;
+  min-height: 44px;
+  border: 1px solid #65765f;
+  border-radius: 30px;
+  background: #18211b;
+  color: #e0e8db;
+  box-shadow: 0 4px 20px #0002;
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+html.lenis {
+  scroll-behavior: auto !important;
+}
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis-stopped {
+  overflow: auto;
+}
+@media (max-width: 600px) {
+  .motion-toggle {
+    right: 12px;
+    bottom: 10px;
+    font-size: 10px;
+    min-height: 38px;
+    padding: 6px 12px;
+  }
+  body {
+    padding-bottom: 42px;
+  }
+}

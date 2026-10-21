@@ -1423,3 +1423,91 @@
     }
   }
 }
+
+// V2: an editorial instrument frame, preserving the original photograph.
+.hero {
+  position: relative;
+  overflow: clip;
+  padding-top: 88px;
+  padding-bottom: 62px;
+}
+.heroCopy {
+  position: relative;
+  z-index: 1;
+}
+.heroCopy h1 [data-hero-line] {
+  display: inline-block;
+}
+.portrait {
+  position: relative;
+  isolation: isolate;
+}
+.portraitIndex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 8px;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding: 11px 0;
+  margin-top: 18px;
+}
+.portraitIndex > span:first-child {
+  color: var(--sage);
+}
+.portraitFrame {
+  border: 1px solid #a9c29d44;
+  border-radius: 3px 3px 72px 3px;
+  box-shadow: 0 0 45px #8eae7a0d;
+}
+.photoCaption {
+  padding-inline: 1px;
+}
+.agent,
+.youth,
+.imgflow {
+  position: relative;
+}
+.projectText h3 {
+  transition: color 0.25s var(--ease);
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .youthVisual img {
+    transition: transform 0.65s var(--ease);
+    transform-origin: 50% 70%;
+  }
+  .youthVisual {
+    overflow: hidden;
+  }
+  .youthVisual:hover img {
+    transform: scale(1.025);
+  }
+  .agent:hover .projectText h3,
+  .youth:hover .projectText h3,
+  .imgflow:hover .projectText h3 {
+    color: #4f6948;
+  }
+  .projectLinks :global(a svg) {
+    transition: transform 0.25s var(--ease);
+  }
+  .projectLinks :global(a:hover svg),
+  .projectLinks :global(a:focus-visible svg) {
+    transform: translate(3px, -3px);
+  }
+}
+@media (max-width: 800px) {
+  .hero {
+    padding-top: 42px;
+    padding-bottom: 38px;
+  }
+  .portraitIndex {
+    margin-top: 0;
+    font-size: 8px;
+  }
+  .portraitFrame {
+    border-bottom-right-radius: 48px;
+  }
+}
