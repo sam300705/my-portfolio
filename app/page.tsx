@@ -4,7 +4,8 @@ import { Arrow, Brand } from "@/components/Icon";
 import Architecture from "@/components/Architecture";
 import ImageComparison from "@/components/ImageComparison";
 import CopyEmail from "@/components/Contact";
-import { MotionToggle } from "@/components/Motion";
+import HeroCanvas from "@/components/HeroCanvas";
+import PortfolioNumbers from "@/components/PortfolioNumbers";
 import {
   certificates,
   identity,
@@ -56,9 +57,11 @@ export default function Home() {
               KUMAR SAMBHAV / SOFTWARE ENGINEERING
             </p>
             <h1 id="hero-heading">
-              Make it work.
+              <span data-hero-line>Make it work.</span>
               <br />
-              Make it <em>better.</em>
+              <span data-hero-line>
+                Make it <em>better.</em>
+              </span>
             </h1>
             <p className={styles.heroIntro}>
               I’m Sambhav, a CSIT student building useful web applications — and
@@ -89,6 +92,12 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.portrait}>
+            <HeroCanvas />
+            <div className={styles.portraitIndex} aria-hidden="true">
+              <span>FIG. 01</span>
+              <span>THE HUMAN IN THE LOOP</span>
+              <span>+</span>
+            </div>
             <div className={styles.portraitFrame}>
               <span className={styles.photoNote}>
                 A LITTLE CODE.
@@ -132,6 +141,7 @@ export default function Home() {
             </a>
           </div>
         </div>
+        <PortfolioNumbers />
         <section
           className={styles.work}
           id="work"
@@ -239,7 +249,7 @@ export default function Home() {
               </div>
               <ImageComparison />
             </article>
-            <div className={styles.extraWork}>
+            <div className={styles.extraWork} id="workbench">
               <span className="mono">STILL EXPLORING</span>
               <div>
                 {workbench.slice(0, 2).map((project) => (
@@ -533,7 +543,9 @@ export default function Home() {
                 <span>Kumar Sambhav</span>
               </Link>
               <p>Built with intent. Always improving.</p>
-              <MotionToggle />
+              <a href="/llms.txt" className="text-link">
+                Text index
+              </a>
               <a href="#main" className="back-top">
                 Back to top <Arrow down />
               </a>

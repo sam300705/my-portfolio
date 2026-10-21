@@ -1,8 +1,8 @@
 # Kumar Sambhav — Software with intent
 
-A personal portfolio and three source-backed engineering case studies. Built with Next.js App Router, strict TypeScript, SCSS Modules, local fonts, and small native interactions. No application database, authentication, tracking, or third-party runtime services.
+A personal portfolio and three source-backed engineering case studies. Built with Next.js App Router, strict TypeScript, SCSS Modules, local fonts, and a small set of optional motion layers. No application database, authentication, tracking, or third-party runtime services.
 
-**Production:** https://sambhavcodes.in — the rebuild is developed separately on `design/software-with-intent`. Production publication requires explicit approval.
+**Production:** https://sambhavcodes.in — the first rebuild is live; the next revision is developed separately on `feature/portfolio-v2`. Production publication requires explicit approval.
 
 ## Develop
 
@@ -35,6 +35,12 @@ Playwright uses `/usr/bin/chromium` in this cloud environment; set `CHROMIUM_PAT
 - `docs/rebuild/`: brief, baseline, content evidence, architecture, design direction, and verification/handoff records.
 
 The original public asset paths and original files are preserved. Certification order follows the user's request; ASEAN training and the British Airways / Forage simulation are last. Personal skills remain focused on web development.
+
+## Optional motion and text index
+
+The v2 revision adds a lazy Three.js line study, GSAP/ScrollTrigger entrances and content-derived counts, and desktop-only Lenis wheel smoothing. Touch scrolling stays native. One persistent control and the system reduced-motion preference disable optional layers. The scene pauses off-screen and disposes on cleanup; WebGL failure keeps a static fallback. `/llms.txt` is generated from typed content, including project evidence and limitations.
+
+[Current v2 direction](docs/v2/DESIGN_AND_SCOPE.md) · [v2 verification](docs/v2/VERIFICATION.md)
 
 ## Evidence and boundaries
 

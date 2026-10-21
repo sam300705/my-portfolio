@@ -12,6 +12,7 @@ export default defineConfig({
     screenshot: "only-on-failure",
     launchOptions: {
       executablePath: process.env.CHROMIUM_PATH || "/usr/bin/chromium",
+      args: ["--enable-unsafe-swiftshader"], // Software WebGL for headless coverage only.
     },
   },
   webServer: process.env.PLAYWRIGHT_BASE_URL

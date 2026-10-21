@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Header from "@/components/Header";
-import { MotionEnhancements } from "@/components/Motion";
+import CreativeMotion from "@/components/CreativeMotion";
+import { MotionEnhancements, MotionToggle } from "@/components/Motion";
 import "./globals.scss";
 const manrope = localFont({
   src: "../public/assets/fonts/manrope-latin.woff",
@@ -59,7 +60,9 @@ export default function RootLayout({
           <style>{`@media(max-width:800px){.nav{height:auto;flex-wrap:wrap;padding-block:16px}.navigation{position:static;visibility:visible;max-height:none;flex-direction:row;flex-wrap:wrap;flex-basis:100%;padding:0;gap:8px 20px;border:0}.navigation>a{font-size:11px}.menu-button{display:none}}.copy-button,.motion-toggle,.comparison input,.comparison label,[role=tablist]{display:none!important}`}</style>
         </noscript>
         {children}
+        <MotionToggle />
         <MotionEnhancements />
+        <CreativeMotion />
       </body>
     </html>
   );
