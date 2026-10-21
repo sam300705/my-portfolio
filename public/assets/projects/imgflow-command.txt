@@ -1,0 +1,22 @@
+IMGFlow source-backed demonstration
+Reviewed repository: https://github.com/sam300705/imgflow
+Revision: 008d54f65cdf0a8001192424efd29704830eb649
+Date: 18 October 2026
+
+Built from that revision with Go 1.27.2, GOMAXPROCS=2 and -p 2.
+The Go SDK archive was checked against the SHA256 in go.dev's release metadata.
+Module downloads retained Go checksum verification. A blocked go-fitz proxy
+redirect was resolved by fetching that pinned module directly from GitHub,
+with its original go.sum checksum still enforced.
+
+The binary is named imgflow; its internal usage name remains gowall.
+The repository retains github.com/Achno/gowall and Achno's MIT license.
+
+Input: generated 720 x 480 PNG color-card fixture, no personal image.
+Working directory: isolated local fixture directory.
+Actual command:
+  imgflow convert input.png - -t everforest > output.png
+Exit status: 0
+
+imgflow-input.png SHA256: 8c78f5a1f0ee260a8bb6397c9a6689ee13ea603ce30f208976f1ec35724e123c
+imgflow-output.png SHA256: 9348885729f6075ff91686921fd5a8aa240a958e0e6c35e3276982be9e2f90af

@@ -1,0 +1,149 @@
+.explorer {
+  background: #dce5d7;
+  color: #283b2c;
+  padding: 32px;
+  border: 1px solid #bdcdb7;
+  border-radius: 4px;
+  position: relative;
+  background-image: radial-gradient(#445b421b 0.7px, transparent 0.7px);
+  background-size: 13px 13px;
+}
+.caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4e624b;
+}
+.caption span:last-child {
+  letter-spacing: 0;
+  text-transform: none;
+}
+.flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 42px 0 32px;
+  position: relative;
+}
+.flow:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #94ad8d;
+}
+.flow button {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #9bb191;
+  background: #eaf0e6;
+  color: #334a32;
+  padding: 15px 6px;
+  font-size: 11px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.flow button:hover {
+  background: #f4f7f1;
+}
+.flow button.active {
+  background: #283e2d;
+  color: #e5efdf;
+  border-color: #283e2d;
+}
+.nodeNumber {
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  align-self: flex-start;
+  margin-left: 6px;
+  opacity: 0.8;
+}
+.nodeShape {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  line-height: 1.2;
+}
+.panel {
+  border-top: 1px solid #a7bba0;
+  padding-top: 24px;
+  min-height: 190px;
+}
+.panel code {
+  font-size: 10px;
+  color: #4e624b;
+  overflow-wrap: anywhere;
+}
+.panel h4 {
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  margin: 12px 0;
+}
+.panel p {
+  font-size: 12px;
+  line-height: 1.85;
+  max-width: 480px;
+  color: #4b5d47;
+}
+.foot {
+  border-top: 1px solid #a7bba0;
+  padding-top: 18px;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  font-size: 8px;
+  color: #4e624b;
+}
+.foot > span:last-child {
+  margin-left: auto;
+}
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #536c4c;
+}
+.explorer :focus-visible {
+  outline-color: #354f35;
+}
+@media (max-width: 600px) {
+  .explorer {
+    padding: 21px 16px;
+  }
+  .caption {
+    font-size: 7px;
+  }
+  .flow {
+    gap: 6px;
+    margin: 28px 0 24px;
+  }
+  .flow button {
+    font-size: 9px;
+    padding: 12px 3px;
+    gap: 8px;
+  }
+  .panel {
+    min-height: 235px;
+    padding-top: 20px;
+  }
+  .panel h4 {
+    font-size: 20px;
+  }
+  .panel p {
+    font-size: 12px;
+  }
+  .foot {
+    font-size: 7px;
+  }
+}
